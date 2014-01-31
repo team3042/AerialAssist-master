@@ -18,13 +18,14 @@ import org.team3042.AerialAssist.commands.IntakeIdle;
 import org.team3042.AerialAssist.commands.IntakeIngest;
 import org.team3042.AerialAssist.commands.IntakePass;
 import org.team3042.AerialAssist.commands.IntakeStow;
+import org.team3042.AerialAssist.commands.ShiftGears;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-    
+    Joystick leftStick = new Joystick(1);
     Joystick rightStick = new Joystick(2);
     
     
@@ -32,7 +33,7 @@ public double getLeftSpeed(){
     return leftStick.getY();
 }
 public double getRightSpeed(){
-    return rightStick.getY();
+    return -rightStick.getY();
 }
     
     // Start the command when the button is pressed and let it run the command
@@ -48,7 +49,7 @@ public double getRightSpeed(){
     // button.whenReleased(new ExampleCommand());
     
     //Define the control hardware
-    Joystick leftStick = new Joystick(RobotMap.JOYSTICK_PORT);
+   
    /*
     TODO:Rename all when functions are determined.
     */

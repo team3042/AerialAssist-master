@@ -42,14 +42,11 @@ public class RobotMap {
     public static final int ROLLER_ARM_JAGUAR_PORT = 1;
      public static int CATAPULT_MOTOR_LEFT = 2;
     public static int CATAPULT_MOTOR_RIGHT = 3;
+    public static final int RIGHT_MOTOR = 4;
+    public static final int LEFT_MOTOR = 5;
     
-    /**
-     * USB port
-     */
-    public static final int
-            
-            JOYSTICK_PORT = 1;
     
+
     public static final int
              /**
               * These are joystick buttons.
@@ -83,6 +80,7 @@ public class RobotMap {
     public static int SHOOT_REVERSE_BUTTON = 1;
     public static final int CATAPULT_ENCODER_INPUT_A = 5;
     public static final int CATAPULT_ENCODER_INPUT_B = 6;
+    public static final int SHIFT_SPIKE = 7;
     
    
     public static Encoder ENCODER = new Encoder(RobotMap.CATAPULT_ENCODER_INPUT_A, 

@@ -7,7 +7,8 @@ import org.team3042.AerialAssist.subsystems.Catapult;
 import org.team3042.AerialAssist.subsystems.IntakeMotor;
 import org.team3042.AerialAssist.subsystems.IntakePistons;
 import org.team3042.AerialAssist.subsystems.CompressorSystem;
-import org.team3042.AerialAssist.subsystems.DriveTrain;
+import org.team3042.AerialAssist.subsystems.TankDrive;
+import org.team3042.AerialAssist.subsystems.GearShift;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -22,8 +23,9 @@ public abstract class CommandBase extends Command {
     public static CompressorSystem compressorSystem = new CompressorSystem();
 public static IntakeMotor intake = new IntakeMotor();
 public static IntakePistons intakePiston = new IntakePistons();
-public static DriveTrain driveTrain = new DriveTrain();
+public static TankDrive tankDrive = new TankDrive();
 public static Catapult  catapult = new Catapult ();
+public static GearShift shiftGears = new GearShift();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -38,7 +40,7 @@ public static Catapult  catapult = new Catapult ();
         SmartDashboard.putData(compressorSystem);
         SmartDashboard.putData(intake);
         SmartDashboard.putData(intakePiston);
-        SmartDashboard.putData(driveTrain);
+        SmartDashboard.putData(tankDrive);
         SmartDashboard.putData(catapult);
         
     }
