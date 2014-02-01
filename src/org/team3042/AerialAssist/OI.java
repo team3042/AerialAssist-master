@@ -19,6 +19,7 @@ import org.team3042.AerialAssist.commands.IntakeIngest;
 import org.team3042.AerialAssist.commands.IntakePass;
 import org.team3042.AerialAssist.commands.IntakeStow;
 import org.team3042.AerialAssist.commands.ShiftGears;
+import org.team3042.AerialAssist.commands.TDrive;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -29,12 +30,13 @@ public class OI {
     Joystick rightStick = new Joystick(2);
     
     
-public double getLeftSpeed(){
-    return leftStick.getY();
-}
-public double getRightSpeed(){
-    return -rightStick.getY();
-}
+    public double getLeftSpeed(){
+        return leftStick.getY();
+    }
+    
+    public double getRightSpeed(){
+        return -rightStick.getY();
+    }
     
     // Start the command when the button is pressed and let it run the command
     // until it is finished as determined by it's isFinished method.

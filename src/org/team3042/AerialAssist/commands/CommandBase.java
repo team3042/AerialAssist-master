@@ -9,6 +9,7 @@ import org.team3042.AerialAssist.subsystems.IntakePistons;
 import org.team3042.AerialAssist.subsystems.CompressorSystem;
 import org.team3042.AerialAssist.subsystems.TankDrive;
 import org.team3042.AerialAssist.subsystems.GearShift;
+import org.team3042.AerialAssist.subsystems.RangeFinder;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -26,6 +27,7 @@ public static IntakePistons intakePiston = new IntakePistons();
 public static TankDrive tankDrive = new TankDrive();
 public static Catapult  catapult = new Catapult ();
 public static GearShift shiftGears = new GearShift();
+public static RangeFinder rangeFinder = new RangeFinder();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -42,6 +44,7 @@ public static GearShift shiftGears = new GearShift();
         SmartDashboard.putData(intakePiston);
         SmartDashboard.putData(tankDrive);
         SmartDashboard.putData(catapult);
+        SmartDashboard.putData(rangeFinder);
         
     }
 

@@ -86,6 +86,7 @@ public class RobotMap {
     public static Encoder ENCODER = new Encoder(RobotMap.CATAPULT_ENCODER_INPUT_A, 
             RobotMap.CATAPULT_ENCODER_INPUT_B);
     public static int CATAPULT_DOWN_POSITION_SWITCH;
+    public static int rangeFinder;
     
     
 }
