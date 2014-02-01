@@ -8,6 +8,7 @@
 package org.team3042.AerialAssist;
 
 
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -65,6 +66,7 @@ public class RobotTemplate extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("The Range", RangeFinder.getRange());
+        SmartDashboard.putNumber("Battery Volatge",DriverStation.getInstance().getBatteryVoltage());
     }
     
     /**
