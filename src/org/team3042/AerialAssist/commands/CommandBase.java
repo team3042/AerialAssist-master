@@ -3,31 +3,33 @@ package org.team3042.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.OI;
-import org.team3042.AerialAssist.subsystems.Catapult;
-import org.team3042.AerialAssist.subsystems.IntakeMotor;
-import org.team3042.AerialAssist.subsystems.IntakePistons;
+import org.team3042.AerialAssist.subsystems.CatapultSystem;
 import org.team3042.AerialAssist.subsystems.CompressorSystem;
-import org.team3042.AerialAssist.subsystems.TankDrive;
-import org.team3042.AerialAssist.subsystems.GearShift;
-import org.team3042.AerialAssist.subsystems.RangeFinder;
+import org.team3042.AerialAssist.subsystems.DriveTrainSystemGearShift;
+import org.team3042.AerialAssist.subsystems.DriveTrainSystem;
+import org.team3042.AerialAssist.subsystems.IntakeSystemMotor;
+import org.team3042.AerialAssist.subsystems.IntakeSystemPistons;
+import org.team3042.AerialAssist.subsystems.RangeFinderSystem;
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
  * CommandBase stores creates and stores each control system. To access a
- * subsystem elsewhere in your code in your code use CommandBase.exampleSubsystem
+ * subsystem elsewhere in your code in your code use
+ * CommandBase.exampleSubsystem
+ *
  * @author Author
  */
 public abstract class CommandBase extends Command {
 
     public static OI oi;
     // Create a single static instance of all of your subsystems
-    public static CompressorSystem compressorSystem = new CompressorSystem();
-public static IntakeMotor intake = new IntakeMotor();
-public static IntakePistons intakePiston = new IntakePistons();
-public static TankDrive tankDrive = new TankDrive();
-public static Catapult  catapult = new Catapult ();
-public static GearShift shiftGears = new GearShift();
-public static RangeFinder rangeFinder = new RangeFinder();
+    public static final CompressorSystem compressorSystem = new CompressorSystem();
+    public static final IntakeSystemMotor intake = new IntakeSystemMotor();
+    public static final IntakeSystemPistons intakePiston = new IntakeSystemPistons();
+    public static final DriveTrainSystem tankDrive = new DriveTrainSystem();
+    public static final CatapultSystem catapult = new CatapultSystem();
+    public static final DriveTrainSystemGearShift shiftGears = new DriveTrainSystemGearShift();
+    public static final RangeFinderSystem rangeFinder = new RangeFinderSystem();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely
@@ -36,7 +38,7 @@ public static RangeFinder rangeFinder = new RangeFinder();
         // yet. Thus, their requires() statements may grab null pointers. Bad
         // news. Don't move it.
         oi = new OI();
-        
+
 
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(compressorSystem);
@@ -45,7 +47,7 @@ public static RangeFinder rangeFinder = new RangeFinder();
         SmartDashboard.putData(tankDrive);
         SmartDashboard.putData(catapult);
         SmartDashboard.putData(rangeFinder);
-        
+
     }
 
     public CommandBase(String name) {

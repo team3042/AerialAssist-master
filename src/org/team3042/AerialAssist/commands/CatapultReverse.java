@@ -1,7 +1,7 @@
 package org.team3042.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.Timer;
-import org.team3042.AerialAssist.subsystems.Catapult;
+import org.team3042.AerialAssist.subsystems.CatapultSystem;
 
 /**
  * TODO: Document this.
@@ -9,15 +9,17 @@ import org.team3042.AerialAssist.subsystems.Catapult;
  * @author Chip
  */
 public class CatapultReverse extends CommandBase {
+
     private static final int STOPPING_ANGLE = 20;
     private static final double SPEED = 0.15;
     private Timer timer = new Timer();
+
     /**
      * TODO: Document this.
      */
     public CatapultReverse() {
         requires(catapult);
-        
+
     }
 
     /**
@@ -43,7 +45,7 @@ public class CatapultReverse extends CommandBase {
         double timeSeconds = timer.get();
         int currentAngle = catapult.getAngle();
         boolean angleReached = false;
-        if (currentAngle <= STOPPING_ANGLE || timeSeconds > Catapult.TIME_SECONDS_FORWARD){
+        if (currentAngle <= STOPPING_ANGLE || timeSeconds > CatapultSystem.TIME_SECONDS_FORWARD) {
             angleReached = true;
         }
         return angleReached;

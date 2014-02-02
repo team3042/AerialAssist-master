@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author Ethan
  */
 public class IntakeStow extends CommandGroup {
-    
+
     public IntakeStow() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -29,7 +29,7 @@ public class IntakeStow extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addParallel(new IntakeArmRetract());
-        addParallel(new IntakeIdle());
+        addParallel(new IntakePistonRetract());
+        addParallel(new IntakeMotorStop());
     }
 }

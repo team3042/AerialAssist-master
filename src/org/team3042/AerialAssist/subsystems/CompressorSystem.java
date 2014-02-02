@@ -13,14 +13,15 @@ import org.team3042.AerialAssist.RobotMap;
  * @author Ethan
  */
 public class CompressorSystem extends Subsystem {
-    
-    Compressor compressor = new Compressor(RobotMap.PRESSURE_SWITCH_PORT, RobotMap.COMPRESSOR_SPIKE_PORT);
-    
-    public CompressorSystem(){
+
+    Compressor compressor =
+            new Compressor(RobotMap.COMPRESSOR_PRESSURE_SWITCH_DIO_PORT,
+            RobotMap.COMPRESSOR_SPIKE_RELAY_PORT);
+
+    public CompressorSystem() {
         compressor.start();
-    }    
-    
+    }
+
     public void initDefaultCommand() {
-        //setDefaultCommand(new CompressorNothing());
     }
 }

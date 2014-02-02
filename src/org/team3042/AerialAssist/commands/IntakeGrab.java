@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  * @author Ethan
  */
 public class IntakeGrab extends CommandGroup {
-    
+
     public IntakeGrab() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
@@ -29,8 +29,8 @@ public class IntakeGrab extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        
-        addParallel(new IntakeArmExtend());
-        addParallel(new IntakeIngest());
+
+        addParallel(new IntakePistonExtend());
+        addParallel(new IntakeMotorIn());
     }
 }
