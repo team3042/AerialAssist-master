@@ -2,9 +2,9 @@ package org.team3042.AerialAssist.commands;
 
 
 
-public class DriveTrainTankDrive extends CommandBase {
+public class DriveTrainArcadeDrive extends CommandBase {
 
-    public DriveTrainTankDrive() {
+    public DriveTrainArcadeDrive() {
 
         requires(driveTrain);
     }
@@ -13,7 +13,7 @@ public class DriveTrainTankDrive extends CommandBase {
     }
 
     protected void execute() {
-        driveTrain.tankDrive(oi.driverLeftJoystick, oi.driverRightJoystick);
+        driveTrain.arcadeDrive(oi.driverRightJoystick);
     }
 
     protected boolean isFinished() {

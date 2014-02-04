@@ -1,9 +1,5 @@
 package org.team3042.AerialAssist;
 
-/**
- * Import necessary libraries
- */
-//FRC Libraries
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -21,26 +17,19 @@ import org.team3042.AerialAssist.commands.IntakePistonRetract;
  */
 public class OI {
 
-    Joystick driverTankLeft = new Joystick(RobotMap.JOYSTICK_1);
-    Joystick driverTankRight = new Joystick(RobotMap.JOYSTICK_2);
-    Joystick gunner = new Joystick(RobotMap.JOYSTICK_3);
+    public Joystick driverLeftJoystick = new Joystick(RobotMap.JOYSTICK_1);
+    public Joystick driverRightJoystick = new Joystick(RobotMap.JOYSTICK_2);
+    private final Joystick gunner = new Joystick(RobotMap.JOYSTICK_3);
 
-    public double getLeftSpeed() {
-        return driverTankLeft.getY();
-    }
+    private final Button rjb1 = new JoystickButton(driverRightJoystick, RobotMap.JOYSTICK_BUTTON_1);
+    private final Button rjb2 = new JoystickButton(driverRightJoystick, RobotMap.JOYSTICK_BUTTON_2);
 
-    public double getRightSpeed() {
-        return driverTankRight.getY();
-    }
-
-    Button gb1 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_1);
-    Button gb2 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_2);
-    Button gb3 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_3);
-    Button gb4 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_4);
-    Button gb6 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_6);
-    Button gb5 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_5);
-    Button rjb1 = new JoystickButton(driverTankRight, RobotMap.JOYSTICK_BUTTON_1);
-    Button rjb2 = new JoystickButton(driverTankRight, RobotMap.JOYSTICK_BUTTON_2);
+    private final Button gb1 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_1);
+    private final Button gb2 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_2);
+    private final Button gb3 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_3);
+    private final Button gb4 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_4);
+    private final Button gb6 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_6);
+    private final Button gb5 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_5);
 
     /**
      * This binds the controls to the correct commands
@@ -51,6 +40,7 @@ public class OI {
          */
         rjb1.whenPressed(new DriveTrainShiftGears(true));
         rjb2.whenPressed(new DriveTrainShiftGears(false));
+
         /**
          * Gunner Catapult
          */

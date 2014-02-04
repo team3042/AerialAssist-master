@@ -26,7 +26,7 @@ public abstract class CommandBase extends Command {
     public static final CompressorSystem compressorSystem = new CompressorSystem();
     public static final IntakeSystemMotor intake = new IntakeSystemMotor();
     public static final IntakeSystemPistons intakePiston = new IntakeSystemPistons();
-    public static final DriveTrainSystem tankDrive = new DriveTrainSystem();
+    public static final DriveTrainSystem driveTrain = new DriveTrainSystem();
     public static final CatapultSystem catapult = new CatapultSystem();
     public static final DriveTrainSystemGearShift shiftGears = new DriveTrainSystemGearShift();
     public static final RangeFinderSystem rangeFinder = new RangeFinderSystem();
@@ -43,7 +43,7 @@ public abstract class CommandBase extends Command {
         SmartDashboard.putData(compressorSystem);
         SmartDashboard.putData(intake);
         SmartDashboard.putData(intakePiston);
-        SmartDashboard.putData(tankDrive);
+        SmartDashboard.putData(driveTrain);
         SmartDashboard.putData(catapult);
         SmartDashboard.putData(rangeFinder);
 
