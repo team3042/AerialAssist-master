@@ -30,13 +30,13 @@ public class IntakeSystemPistons extends Subsystem {
 
     public void extend() {
 
-        pistonArm.set(Relay.Value.kOn);
+        pistonArm.set(Relay.Value.kReverse);
         extended = true;
     }
 
     public void retract() {
 
-        pistonArm.set(Relay.Value.kOff);
+        pistonArm.set(Relay.Value.kOn);
         extended = false;
     }
 

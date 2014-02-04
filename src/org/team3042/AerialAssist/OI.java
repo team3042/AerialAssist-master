@@ -30,7 +30,7 @@ public class OI {
     }
 
     public double getRightSpeed() {
-        return -driverTankRight.getY();
+        return driverTankRight.getY();
     }
 
     Button gb1 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_1);
