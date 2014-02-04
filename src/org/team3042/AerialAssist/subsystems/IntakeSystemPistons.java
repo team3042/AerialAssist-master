@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.team3042.AerialAssist.RobotMap;
 import org.team3042.AerialAssist.commands.IntakePistonRetract;
 
+
 /**
  *
  * @author Ethan
@@ -18,6 +19,7 @@ public class IntakeSystemPistons extends Subsystem {
      * Create Subsystem objects
      */
     Relay pistonArm = new Relay(RobotMap.INTAKE_SOLENOID_SPIKE_RELAY_PORT);
+    private boolean extended = false;
 
     public IntakeSystemPistons() {
     }
@@ -29,11 +31,20 @@ public class IntakeSystemPistons extends Subsystem {
     public void extend() {
 
         pistonArm.set(Relay.Value.kOn);
+        extended = true;
     }
 
     public void retract() {
 
         pistonArm.set(Relay.Value.kOff);
+        extended = false;
+    }
 
+    public void maintain() {
+        if (extended) {
+            this.extend();
+        } else {
+            this.retract();
+        }
     }
 }

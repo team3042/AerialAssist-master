@@ -4,11 +4,16 @@
  */
 package org.team3042.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.Timer;
+
 /**
  *
  * @author Ethan
  */
 public class IntakePistonRetract extends CommandBase {
+
+    private static final double TIME_END = 4.0;
+    private Timer timer = new Timer();
 
     public IntakePistonRetract() {
 
@@ -19,6 +24,7 @@ public class IntakePistonRetract extends CommandBase {
      * Called just before this Command runs the first time
      */
     protected void initialize() {
+        timer.start();
     }
 
     /**
@@ -32,7 +38,11 @@ public class IntakePistonRetract extends CommandBase {
      * Make this return true when this Command no longer needs to run execute()
      */
     protected boolean isFinished() {
-        return false;
+        boolean finished = false;
+        if (timer.get() >= TIME_END) {
+            finished = true;
+        }
+        return finished;
     }
 
     /**

@@ -14,9 +14,9 @@ import org.team3042.AerialAssist.RobotMap;
  */
 public class CompressorSystem extends Subsystem {
 
-    Compressor compressor =
-            new Compressor(RobotMap.COMPRESSOR_PRESSURE_SWITCH_DIO_PORT,
-            RobotMap.COMPRESSOR_SPIKE_RELAY_PORT);
+    Compressor compressor
+            = new Compressor(RobotMap.COMPRESSOR_PRESSURE_SWITCH_DIO_PORT,
+                    RobotMap.COMPRESSOR_SPIKE_RELAY_PORT);
 
     public CompressorSystem() {
         compressor.start();

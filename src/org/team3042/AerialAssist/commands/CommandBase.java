@@ -39,7 +39,6 @@ public abstract class CommandBase extends Command {
         // news. Don't move it.
         oi = new OI();
 
-
         // Show what command your subsystem is running on the SmartDashboard
         SmartDashboard.putData(compressorSystem);
         SmartDashboard.putData(intake);
