@@ -5,6 +5,8 @@ package org.team3042.AerialAssist;
  * to a variable name. This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
+ *
+ * @author Team 3042
  */
 public class RobotMap {
 

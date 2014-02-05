@@ -11,7 +11,7 @@ import org.team3042.AerialAssist.RobotMap;
 
 /**
  *
- * @author t0211801v
+ * @author Team 3042
  */
 public class RangeFinderSystem extends Subsystem {
 

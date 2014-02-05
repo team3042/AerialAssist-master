@@ -12,7 +12,7 @@ import org.team3042.AerialAssist.commands.DriveTrainShiftGears;
 
 /**
  *
- * @author noah G
+ * @author Team 3042
  */
 public class DriveTrainSystemGearShift extends Subsystem {
     // Put methods for controlling this subsystem

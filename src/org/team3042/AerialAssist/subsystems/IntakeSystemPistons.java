@@ -6,12 +6,11 @@ package org.team3042.AerialAssist.subsystems;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.team3042.AerialAssist.RobotMap;
-import org.team3042.AerialAssist.commands.IntakePistonRetract;
-
+import org.team3042.AerialAssist.commands.IntakeMaintainPosition;
 
 /**
  *
- * @author Ethan
+ * @author Team 3042
  */
 public class IntakeSystemPistons extends Subsystem {
 
@@ -25,18 +24,18 @@ public class IntakeSystemPistons extends Subsystem {
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new IntakePistonRetract());
+        setDefaultCommand(new IntakeMaintainPosition());
     }
 
     public void extend() {
 
-        pistonArm.set(Relay.Value.kReverse);
+        pistonArm.set(Relay.Value.kOn);
         extended = true;
     }
 
     public void retract() {
 
-        pistonArm.set(Relay.Value.kOn);
+        pistonArm.set(Relay.Value.kReverse);
         extended = false;
     }
 

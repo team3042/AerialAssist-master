@@ -3,7 +3,7 @@ package org.team3042.AerialAssist.commands;
 /**
  * This command the roller arm motor.
  *
- * Version 1.0 Ethan Dohm-Palmer
+ * @author Team 3042
  */
 public class IntakeMotorStop extends CommandBase {
 

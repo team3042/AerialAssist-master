@@ -9,7 +9,7 @@ import org.team3042.AerialAssist.commands.CatapultDoNothing;
 /**
  * TODO: Document this.
  *
- * @author Chip
+ * @author Team 3042
  */
 public class CatapultSystem extends Subsystem {
 

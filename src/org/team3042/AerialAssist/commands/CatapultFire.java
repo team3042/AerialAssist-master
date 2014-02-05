@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  *
  * This command assumes that one of the fire plans has been set first.
  *
- * @author Chip
+ * @author Team 3042
  */
 public class CatapultFire extends CommandGroup {
 
@@ -15,11 +15,12 @@ public class CatapultFire extends CommandGroup {
      * TODO: Document this.
      */
     public CatapultFire() {
+
         /**
          * Add a command so that default command for intake arm is maintain
          * position.
          */
-        //     addSequential(new IntakeArmExtend());
+        addSequential(new IntakePistonExtend());
         addSequential(new CatapultForward());
         addSequential(new CatapultReverse());
 

@@ -7,8 +7,7 @@ package org.team3042.AerialAssist.commands;
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
- *
- * @author Ethan
+ * @author Team 3042
  */
 public class IntakeGrab extends CommandGroup {
 

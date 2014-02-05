@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
- * @author Ethan
+ * @author Team 3042
  */
 public class IntakePistonRetract extends CommandBase {
 

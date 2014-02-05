@@ -10,7 +10,7 @@ import org.team3042.AerialAssist.RobotMap;
 
 /**
  *
- * @author Ethan
+ * @author Team 3042
  */
 public class CompressorSystem extends Subsystem {
 

@@ -7,7 +7,7 @@ import org.team3042.AerialAssist.subsystems.CatapultSystem;
 /**
  * TODO: Document this.
  *
- * @author Chip
+ * @author Team 3042
  */
 public class CatapultForward extends CommandBase {
 

@@ -4,7 +4,7 @@ package org.team3042.AerialAssist.commands;
  * When executed this command resets the zero angle of the encoder. Once set we
  * can do all calculations from a zero-basis.
  *
- * @author Chip
+ * @author Team 3042
  */
 public class CatapultResetAngleZero extends CommandBase {
 

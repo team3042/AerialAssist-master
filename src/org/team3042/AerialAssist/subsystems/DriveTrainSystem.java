@@ -7,6 +7,10 @@ import org.team3042.AerialAssist.RobotMap;
 import org.team3042.AerialAssist.commands.DriveTrainArcadeDrive;
 import org.team3042.AerialAssist.commands.DriveTrainTankDrive;
 
+/**
+ *
+ * @author Team 3042
+ */
 public class DriveTrainSystem extends Subsystem {
 
     private final RobotDrive robotDrive
@@ -14,10 +18,10 @@ public class DriveTrainSystem extends Subsystem {
                     RobotMap.DRIVE_TRAIN_RIGHT_MOTOR_PWM_PORT);
 
     /**
-     * Uncomment the drive train you want to use.
+     * Comment out the drive train you don't want to use.
      */
     public void initDefaultCommand() {
-        setDefaultCommand(new DriveTrainTankDrive());
+        //setDefaultCommand(new DriveTrainTankDrive());
         setDefaultCommand(new DriveTrainArcadeDrive());
     }
 

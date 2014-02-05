@@ -6,7 +6,7 @@ package org.team3042.AerialAssist.commands;
 
 /**
  *
- * @author Ethan
+ * @author Team 3042
  */
 public class IntakeMaintainPosition extends CommandBase {
 

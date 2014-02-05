@@ -3,7 +3,7 @@ package org.team3042.AerialAssist.commands;
 /**
  * TODO: Document this.
  *
- * @author Chip
+ * @author Team 3042
  */
 public class CatapultDoNothing extends CommandBase {
 

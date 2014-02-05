@@ -3,7 +3,7 @@ package org.team3042.AerialAssist.commands;
 /**
  * This turns the intake motor system to push the ball out of the robot.
  *
- * Version 1.0 Ethan Dohm-Palmer
+ * @author Team 3042
  */
 public class IntakeMotorOut extends CommandBase {
 

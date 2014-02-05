@@ -16,7 +16,7 @@ import org.team3042.AerialAssist.commands.IntakeMotorStop;
  * The intake subsystem for the Aerial Assist robot Team 3042 Eastview Cobalt
  * Catalysts
  *
- * Version 1.0 Ethan Dohm-Palmer
+ * @author Team 3042
  */
 public class IntakeSystemMotor extends Subsystem {
 

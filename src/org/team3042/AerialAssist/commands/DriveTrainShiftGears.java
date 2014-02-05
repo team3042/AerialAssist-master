@@ -7,7 +7,7 @@ package org.team3042.AerialAssist.commands;
 
 /**
  *
- * @author noah G
+ * @author Team 3042
  */
 public class DriveTrainShiftGears extends CommandBase {
 

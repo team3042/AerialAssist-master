@@ -1,7 +1,9 @@
 package org.team3042.AerialAssist.commands;
 
-
-
+/**
+ *
+ * @author Team 3042
+ */
 public class DriveTrainArcadeDrive extends CommandBase {
 
     public DriveTrainArcadeDrive() {

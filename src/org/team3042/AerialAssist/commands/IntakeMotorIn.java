@@ -4,7 +4,7 @@ package org.team3042.AerialAssist.commands;
  * This command starts the roller arm motor to grab a ball and bring it into the
  * robot.
  *
- * Version 1.0 Ethan Dohm-Palmer
+ * @author Team 3042
  */
 public class IntakeMotorIn extends CommandBase {
 
