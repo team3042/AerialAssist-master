@@ -17,7 +17,7 @@ public class IntakePistonRetract extends CommandBase {
 
     public IntakePistonRetract() {
 
-        requires(intakePiston);
+        requires(INTAKE_PISTON);
     }
 
     /**
@@ -31,7 +31,7 @@ public class IntakePistonRetract extends CommandBase {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-        intakePiston.retract();
+        INTAKE_PISTON.retract();
     }
 
     /**

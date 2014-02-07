@@ -1,7 +1,7 @@
 package org.team3042.AerialAssist.commands;
 
 /**
- * This turns the intake motor system to push the ball out of the robot.
+ * This turns the INTAKE motor system to push the ball out of the robot.
  *
  * @author Team 3042
  */
@@ -11,7 +11,7 @@ public class IntakeMotorOut extends CommandBase {
         /**
          * Use requires() here to declare subsystem dependencies
          */
-        requires(intake);
+        requires(INTAKE);
     }
 
     /**
@@ -24,7 +24,7 @@ public class IntakeMotorOut extends CommandBase {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-        intake.excrete();
+        INTAKE.excrete();
     }
 
     /**

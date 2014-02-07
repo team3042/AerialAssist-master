@@ -4,26 +4,25 @@ import edu.wpi.first.wpilibj.Timer;
 import org.team3042.AerialAssist.subsystems.CatapultSystem;
 
 /**
- * TODO: Document this.
+ * Moves Catapult backward, until at proper angle.
  *
  * @author Team 3042
  */
 public class CatapultReverse extends CommandBase {
 
-    private static final int STOPPING_ANGLE = 20;
+    private static final int STOPPING_TICKS = 20;
     private static final double SPEED = 0.15;
-    private Timer timer = new Timer();
+    private final Timer timer = new Timer();
 
     /**
      * TODO: Document this.
      */
     public CatapultReverse() {
-        requires(catapult);
-
+        requires(CATAPULT_SYSTEM);
     }
 
     /**
-     * TODO: Document this.
+     * Starts the timer.
      */
     protected void initialize() {
         timer.start();
@@ -33,22 +32,16 @@ public class CatapultReverse extends CommandBase {
      * TODO: Document this.
      */
     protected void execute() {
-        catapult.reverse(SPEED);
+        CATAPULT_SYSTEM.reverse(SPEED);
     }
 
     /**
-     * TODO: Document this.
+     * Finished when Catapult is at proper angle or timed out.
      *
-     * @return
+     * @return Catapult angle is at stopping angle or timer has run out.
      */
     protected boolean isFinished() {
-        double timeSeconds = timer.get();
-        int currentAngle = catapult.getAngle();
-        boolean angleReached = false;
-        if (currentAngle <= STOPPING_ANGLE || timeSeconds > CatapultSystem.TIME_SECONDS_FORWARD) {
-            angleReached = true;
-        }
-        return angleReached;
+        return CATAPULT_SYSTEM.getEncoderCount() <= STOPPING_TICKS || timer.get() >= CatapultSystem.TIME_SECONDS_FORWARD;
     }
 
     /**

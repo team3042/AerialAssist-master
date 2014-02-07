@@ -17,7 +17,7 @@ public class IntakePistonExtend extends CommandBase {
     private Timer timer = new Timer();
 
     public IntakePistonExtend() {
-        requires(intakePiston);
+        requires(INTAKE_PISTON);
     }
 
     /**
@@ -31,7 +31,7 @@ public class IntakePistonExtend extends CommandBase {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-        intakePiston.extend();
+        INTAKE_PISTON.extend();
     }
 
     /**

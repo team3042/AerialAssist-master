@@ -12,38 +12,34 @@ import org.team3042.AerialAssist.subsystems.IntakeSystemPistons;
 import org.team3042.AerialAssist.subsystems.RangeFinderSystem;
 
 /**
- *
+ * 
  *
  * @author Team 3042
  */
 public abstract class CommandBase extends Command {
 
     public static OI oi;
-    // Create a single static instance of all of your subsystems
-    public static final CompressorSystem compressorSystem = new CompressorSystem();
-    public static final IntakeSystemMotor intake = new IntakeSystemMotor();
-    public static final IntakeSystemPistons intakePiston = new IntakeSystemPistons();
-    public static final DriveTrainSystem driveTrain = new DriveTrainSystem();
-    public static final CatapultSystem catapult = new CatapultSystem();
-    public static final DriveTrainSystemGearShift shiftGears = new DriveTrainSystemGearShift();
-    public static final RangeFinderSystem rangeFinder = new RangeFinderSystem();
+    
+    public static final CompressorSystem COMPRESSOR_SYSTEM = new CompressorSystem();
+    public static final IntakeSystemMotor INTAKE = new IntakeSystemMotor();
+    public static final IntakeSystemPistons INTAKE_PISTON = new IntakeSystemPistons();
+    public static final DriveTrainSystem DRIVE_TRAIN = new DriveTrainSystem();
+    public static final CatapultSystem CATAPULT_SYSTEM = new CatapultSystem();
+    public static final DriveTrainSystemGearShift SHIFT_GEARS = new DriveTrainSystemGearShift();
+    public static final RangeFinderSystem RANGE_FINDER = new RangeFinderSystem();
 
+    /**
+     * Instantiates an {@link OI}, and puts Subsystems on the {@link SmartDashboard}.
+     */
     public static void init() {
-        // This MUST be here. If the OI creates Commands (which it very likely
-        // will), constructing it during the construction of CommandBase (from
-        // which commands extend), subsystems are not guaranteed to be
-        // yet. Thus, their requires() statements may grab null pointers. Bad
-        // news. Don't move it.
         oi = new OI();
 
-        // Show what command your subsystem is running on the SmartDashboard
-        SmartDashboard.putData(compressorSystem);
-        SmartDashboard.putData(intake);
-        SmartDashboard.putData(intakePiston);
-        SmartDashboard.putData(driveTrain);
-        SmartDashboard.putData(catapult);
-        SmartDashboard.putData(rangeFinder);
-
+        SmartDashboard.putData(COMPRESSOR_SYSTEM);
+        SmartDashboard.putData(INTAKE);
+        SmartDashboard.putData(INTAKE_PISTON);
+        SmartDashboard.putData(DRIVE_TRAIN);
+        SmartDashboard.putData(CATAPULT_SYSTEM);
+        SmartDashboard.putData(RANGE_FINDER);
     }
 
     public CommandBase(String name) {

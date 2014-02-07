@@ -10,19 +10,19 @@ package org.team3042.AerialAssist;
  */
 public class RobotMap {
 
-    /**
+    /*
      * Relay Ports
      */
     public static final int COMPRESSOR_SPIKE_RELAY_PORT = 3;
     public static final int INTAKE_SOLENOID_SPIKE_RELAY_PORT = 6;
     public static final int DRIVE_TRAIN_SHIFT_SPIKE_RELAY_PORT = 7;
-    /**
+    /*
      * Digital IO Ports
      */
     public static final int COMPRESSOR_PRESSURE_SWITCH_DIO_PORT = 3;
     public static final int CATAPULT_ENCODER_INPUT_A_DIO_PORT = 5;
     public static final int CATAPULT_ENCODER_INPUT_B_DIO_PORT = 6;
-    /**
+    /*
      * PWM Ports
      */
     public static final int INTAKE_ROLLER_JAGUAR_PWM_PORT = 1;
@@ -30,17 +30,17 @@ public class RobotMap {
     public static final int CATAPULT_MOTOR_RIGHT_PWM_PORT = 3;
     public static final int DRIVE_TRAIN_RIGHT_MOTOR_PWM_PORT = 4;
     public static final int DRIVE_TRAIN_LEFT_MOTOR_PWM_PORT = 5;
-    /**
+    /*
      * Analog Ports
      */
     public static final int RANGE_FINDER_ANALOG_PORT = 1;
-    /**
+    /*
      * USB Ports
      */
     public static final int JOYSTICK_1 = 1;
     public static final int JOYSTICK_2 = 2;
     public static final int JOYSTICK_3 = 3;
-    /**
+    /*
      * These are joystick buttons.
      */
     public static final int TRIGGER_BUTTON = 1;
