@@ -43,9 +43,10 @@ public class RobotMap {
     /**
      * These are joystick buttons.
      */
-    public static final int JOYSTICK_BUTTON_1 = 1;
+    public static final int TRIGGER_BUTTON = 1;
     public static final int JOYSTICK_BUTTON_2 = 2;
     public static final int JOYSTICK_BUTTON_3 = 3;
+    public static final int TANK_DRIVE_OVERRIDE = 3;
     public static final int JOYSTICK_BUTTON_4 = 4;
     public static final int JOYSTICK_BUTTON_5 = 5;
     public static final int JOYSTICK_BUTTON_6 = 6;

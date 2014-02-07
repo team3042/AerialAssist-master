@@ -23,10 +23,10 @@ public class OI {
     public Joystick driverRightJoystick = new Joystick(RobotMap.JOYSTICK_2);
     private final Joystick gunner = new Joystick(RobotMap.JOYSTICK_3);
 
-    private final Button rjb1 = new JoystickButton(driverRightJoystick, RobotMap.JOYSTICK_BUTTON_1);
-    private final Button rjb2 = new JoystickButton(driverRightJoystick, RobotMap.JOYSTICK_BUTTON_2);
+    private final Button rTrig = new JoystickButton(driverRightJoystick, RobotMap.TRIGGER_BUTTON);
+    private final Button lTrig = new JoystickButton(driverLeftJoystick, RobotMap.TRIGGER_BUTTON); 
 
-    private final Button gb1 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_1);
+    private final Button gb1 = new JoystickButton(gunner, RobotMap.TRIGGER_BUTTON);
     private final Button gb2 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_2);
     private final Button gb3 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_3);
     private final Button gb4 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_4);
@@ -38,10 +38,12 @@ public class OI {
      */
     public OI() {
         /**
-         * Driver Station gear shift
+         * When either drive trigger is held, shift to high gear
          */
-        rjb1.whenPressed(new DriveTrainShiftGears(true));
-        rjb2.whenPressed(new DriveTrainShiftGears(false));
+        lTrig.whileHeld(new DriveTrainShiftGears(true));
+        lTrig.whenReleased(new DriveTrainShiftGears(false));
+        rTrig.whileHeld(new DriveTrainShiftGears(true));
+        rTrig.whenReleased(new DriveTrainShiftGears(false));
 
         /**
          * Gunner Catapult
