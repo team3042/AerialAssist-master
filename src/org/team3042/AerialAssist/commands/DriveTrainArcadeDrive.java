@@ -8,14 +8,14 @@ public class DriveTrainArcadeDrive extends CommandBase {
 
     public DriveTrainArcadeDrive() {
 
-        requires(driveTrain);
+        requires(DRIVE_TRAIN);
     }
 
     protected void initialize() {
     }
 
     protected void execute() {
-        driveTrain.arcadeDrive(oi.driverRightJoystick);
+        DRIVE_TRAIN.arcadeDrive(oi.driverRightJoystick);
     }
 
     protected boolean isFinished() {

@@ -12,7 +12,7 @@ public class CatapultResetAngleZero extends CommandBase {
      * TODO: Document this.
      */
     public CatapultResetAngleZero() {
-        requires(catapult);
+        requires(CATAPULT_SYSTEM);
     }
 
     /**
@@ -25,7 +25,7 @@ public class CatapultResetAngleZero extends CommandBase {
      * TODO: Document this.
      */
     protected void execute() {
-        catapult.resetAngle();
+        CATAPULT_SYSTEM.resetAngle();
     }
 
     /**

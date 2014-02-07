@@ -15,7 +15,7 @@ public class DriveTrainShiftGears extends CommandBase {
 
     public DriveTrainShiftGears(boolean isHigh) {
         // Use requires() here to declare subsystem dependencies
-        requires(shiftGears);
+        requires(SHIFT_GEARS);
         this.isHigh = isHigh;
     }
 
@@ -26,9 +26,9 @@ public class DriveTrainShiftGears extends CommandBase {
     // Called repeatedly wcshen this Command is scheduled to run
     protected void execute() {
         if (this.isHigh) {
-            shiftGears.shiftHigh();
+            SHIFT_GEARS.shiftHigh();
         } else {
-            shiftGears.shiftLow();
+            SHIFT_GEARS.shiftLow();
         }
     }
 

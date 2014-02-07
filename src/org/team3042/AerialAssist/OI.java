@@ -34,10 +34,10 @@ public class OI {
     private final Button gb5 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_5);
 
     /**
-     * This binds the controls to the correct commands
+     * This binds the controls to the correct commands.
      */
     public OI() {
-        /**
+        /*
          * When either drive trigger is held, shift to high gear
          */
         lTrig.whileHeld(new DriveTrainShiftGears(true));
@@ -45,12 +45,12 @@ public class OI {
         rTrig.whileHeld(new DriveTrainShiftGears(true));
         rTrig.whenReleased(new DriveTrainShiftGears(false));
 
-        /**
+        /*
          * Gunner Catapult
          */
         gb1.whenPressed(new CatapultFire());
 
-        /**
+        /*
          * Gunner Intake
          */
         gb2.whenPressed(new IntakeMotorStop());

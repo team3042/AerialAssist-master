@@ -11,7 +11,7 @@ package org.team3042.AerialAssist.commands;
 public class IntakeMaintainPosition extends CommandBase {
 
     public IntakeMaintainPosition() {
-        requires(intakePiston);
+        requires(INTAKE_PISTON);
     }
 
     // Called just before this Command runs the first time
@@ -20,7 +20,7 @@ public class IntakeMaintainPosition extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        intakePiston.maintain();
+        INTAKE_PISTON.maintain();
     }
 
     // Make this return true when this Command no longer needs to run execute()

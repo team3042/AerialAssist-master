@@ -12,7 +12,7 @@ public class IntakeMotorIn extends CommandBase {
         /**
          * Use requires() here to declare subsystem dependencies
          */
-        requires(intake);
+        requires(INTAKE);
     }
 
     /**
@@ -25,7 +25,7 @@ public class IntakeMotorIn extends CommandBase {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-        intake.ingest();
+        INTAKE.ingest();
     }
 
     /**

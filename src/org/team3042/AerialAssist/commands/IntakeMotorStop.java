@@ -11,7 +11,7 @@ public class IntakeMotorStop extends CommandBase {
         /**
          * Use requires() here to declare subsystem dependencies
          */
-        requires(intake);
+        requires(INTAKE);
     }
 
     /**
@@ -24,7 +24,7 @@ public class IntakeMotorStop extends CommandBase {
      * Called repeatedly when this Command is scheduled to run
      */
     protected void execute() {
-        intake.idle();
+        INTAKE.idle();
     }
 
     /**

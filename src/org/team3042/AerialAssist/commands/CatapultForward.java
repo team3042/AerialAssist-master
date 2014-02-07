@@ -13,16 +13,15 @@ public class CatapultForward extends CommandBase {
 
     public static final int DANGLE = 200;
     public static final double SPEED = 0.75;
-    private static final double TICK_TO_ANGLE = 1.5;
-    private int stoppingAngle = 100;
+    private int stoppingTicks = 100;
     private double speed = SPEED;
-    private Timer timer = new Timer();
+    private final Timer timer = new Timer();
 
     /**
      * TODO: Document this.
      */
     public CatapultForward() {
-        requires(catapult);
+        requires(CATAPULT_SYSTEM);
     }
 
     /**
@@ -30,9 +29,9 @@ public class CatapultForward extends CommandBase {
      */
     protected void initialize() {
         speed = SmartDashboard.getNumber("The Speed", SPEED);
-        stoppingAngle = (int) (SmartDashboard.getNumber("The Angle", DANGLE) * TICK_TO_ANGLE);
+        stoppingTicks = (int) (SmartDashboard.getNumber("The Angle", DANGLE) * CatapultSystem.ANGLE_TO_TICK);
         System.out.println(speed);
-        System.out.println(stoppingAngle);
+        System.out.println(stoppingTicks);
         timer.start();
     }
 
@@ -40,23 +39,16 @@ public class CatapultForward extends CommandBase {
      * TODO: Document this.
      */
     protected void execute() {
-        catapult.forward(speed);
+        CATAPULT_SYSTEM.forward(speed);
     }
 
     /**
-     * TODO: Document this.
+     * Finished when Catapult is at proper angle or timed out.
      *
-     * @return
+     * @return Catapult angle is at stopping angle or timer has run out.
      */
     protected boolean isFinished() {
-        double timeSeconds = timer.get();
-        int currentAngle = catapult.getAngle();
-        System.out.println(currentAngle);
-        boolean angleReached = false;
-        if (currentAngle >= stoppingAngle || timeSeconds > CatapultSystem.TIME_SECONDS_FORWARD) {
-            angleReached = true;
-        }
-        return angleReached;
+        return CATAPULT_SYSTEM.getEncoderCount() >= stoppingTicks || timer.get() >= CatapultSystem.TIME_SECONDS_FORWARD;
     }
 
     /**

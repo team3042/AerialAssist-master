@@ -1,7 +1,7 @@
 package org.team3042.AerialAssist.commands;
 
 /**
- * TODO: Document this.
+ * Stops movement of the cradle.
  *
  * @author Team 3042
  */
@@ -11,26 +11,26 @@ public class CatapultDoNothing extends CommandBase {
      * TODO: Document this.
      */
     public CatapultDoNothing() {
-        requires(catapult);
+        requires(CATAPULT_SYSTEM);
     }
 
     /**
-     * TODO: Document this.
+     * No initialization code required.
      */
     protected void initialize() {
     }
 
     /**
-     * TODO: Document this.
+     * Stops movement of the cradle.
      */
     protected void execute() {
-        catapult.doNothing();
+        CATAPULT_SYSTEM.doNothing();
     }
 
     /**
-     * TODO: Document this.
+     * Finished when {@link CatapultSystem} is used for another purpose.
      *
-     * @return
+     * @return false
      */
     protected boolean isFinished() {
         return false;
