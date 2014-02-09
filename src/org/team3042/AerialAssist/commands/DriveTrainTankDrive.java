@@ -14,6 +14,7 @@ public class DriveTrainTankDrive extends CommandBase {
     }
 
     protected void initialize() {
+        
     }
 
     protected void execute() {

@@ -11,7 +11,7 @@ package org.team3042.AerialAssist.commands;
  */
 public class DriveTrainShiftGears extends CommandBase {
 
-    boolean isHigh;
+    private boolean isHigh;
 
     public DriveTrainShiftGears(boolean isHigh) {
         // Use requires() here to declare subsystem dependencies
@@ -30,6 +30,10 @@ public class DriveTrainShiftGears extends CommandBase {
         } else {
             shiftGears.shiftLow();
         }
+    }
+    
+    public boolean isHigh() {
+        return isHigh;
     }
 
     // Make this return true when this Command no longer needs to run execute()

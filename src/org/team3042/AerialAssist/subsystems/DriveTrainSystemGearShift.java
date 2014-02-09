@@ -19,6 +19,7 @@ public class DriveTrainSystemGearShift extends Subsystem {
     // here. Call these from Commands.
 
     Relay shiftSpike = new Relay(RobotMap.DRIVE_TRAIN_SHIFT_SPIKE_RELAY_PORT);
+    private boolean isHigh;
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
@@ -27,9 +28,15 @@ public class DriveTrainSystemGearShift extends Subsystem {
 
     public void shiftHigh() {
         shiftSpike.set(Relay.Value.kReverse);
+        isHigh = true;
     }
 
     public void shiftLow() {
         shiftSpike.set(Relay.Value.kOff);
+        isHigh = false;
+    }
+    
+    public boolean isHigh() {
+        return isHigh;
     }
 }

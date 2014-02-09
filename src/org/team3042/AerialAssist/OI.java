@@ -3,6 +3,7 @@ package org.team3042.AerialAssist;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.commands.CatapultFire;
 import org.team3042.AerialAssist.commands.DriveTrainShiftGears;
 import org.team3042.AerialAssist.commands.IntakeMotorIn;
@@ -37,6 +38,12 @@ public class OI {
      * This binds the controls to the correct commands
      */
     public OI() {
+        SmartDashboard.putNumber("Left Low Scale", 1.0);
+        SmartDashboard.putNumber("Right Low Scale", 1.0);
+        SmartDashboard.putNumber("Left High Scale", 1.0);
+        SmartDashboard.putNumber("Right High Scale", 1.0);
+        
+        
         /**
          * When either drive trigger is held, shift to high gear
          */
