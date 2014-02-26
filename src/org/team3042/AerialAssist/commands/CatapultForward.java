@@ -1,5 +1,7 @@
 package org.team3042.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.subsystems.CatapultSystem;
@@ -11,10 +13,10 @@ import org.team3042.AerialAssist.subsystems.CatapultSystem;
  */
 public class CatapultForward extends CommandBase {
 
-    public static final int DANGLE = 200;
+    public static final int DEFAULT_ANGLE = 120;//200;
     public static final double SPEED = 0.75;
     private static final double TICK_TO_ANGLE = 1.5;
-    private int stoppingAngle = 100;
+    private int stoppingAngle = DEFAULT_ANGLE;
     private double speed = SPEED;
     private Timer timer = new Timer();
 
@@ -29,11 +31,18 @@ public class CatapultForward extends CommandBase {
      * TODO: Document this.
      */
     protected void initialize() {
-        speed = SmartDashboard.getNumber("The Speed", SPEED);
-        stoppingAngle = (int) (SmartDashboard.getNumber("The Angle", DANGLE) * TICK_TO_ANGLE);
+        speed = SmartDashboard.getNumber("The Forward Speed", SPEED);
+        stoppingAngle = (int) (SmartDashboard.getNumber("The Angle", DEFAULT_ANGLE) * TICK_TO_ANGLE);
         System.out.println(speed);
         System.out.println(stoppingAngle);
         timer.start();
+        String log = "Time: " + DriverStation.getInstance().getMatchTime() + ", Voltage: " + DriverStation.getInstance().getBatteryVoltage() + ", power: " + speed;
+        System.out.println(log);
+        DriverStationLCD d = DriverStationLCD.getInstance();
+        d.println(DriverStationLCD.Line.kUser1, 1, "Time: " + DriverStation.getInstance().getMatchTime());
+        d.println(DriverStationLCD.Line.kUser2, 1, "Voltage: " + DriverStation.getInstance().getBatteryVoltage());
+        d.println(DriverStationLCD.Line.kUser3, 1, "Speed: " + speed);
+        d.updateLCD();
     }
 
     /**
@@ -51,7 +60,6 @@ public class CatapultForward extends CommandBase {
     protected boolean isFinished() {
         double timeSeconds = timer.get();
         int currentAngle = catapult.getAngle();
-        System.out.println(currentAngle);
         boolean angleReached = false;
         if (currentAngle >= stoppingAngle || timeSeconds > CatapultSystem.TIME_SECONDS_FORWARD) {
             angleReached = true;

@@ -13,15 +13,19 @@ public class RobotMap {
     /**
      * Relay Ports
      */
-    public static final int COMPRESSOR_SPIKE_RELAY_PORT = 3;
-    public static final int INTAKE_SOLENOID_SPIKE_RELAY_PORT = 6;
-    public static final int DRIVE_TRAIN_SHIFT_SPIKE_RELAY_PORT = 7;
+    public static final int COMPRESSOR_SPIKE_RELAY_PORT = 8;//3; Breadboard 2 debug: change compressor port to 8
+    public static final int INTAKE_SOLENOID_SPIKE_RELAY_PORT = 7;//breadboard 2: wrt solenoid weirdness, bandaid
+    public static final int DRIVE_TRAIN_SHIFT_SPIKE_RELAY_PORT = 6;
     /**
      * Digital IO Ports
      */
     public static final int COMPRESSOR_PRESSURE_SWITCH_DIO_PORT = 3;
     public static final int CATAPULT_ENCODER_INPUT_A_DIO_PORT = 5;
     public static final int CATAPULT_ENCODER_INPUT_B_DIO_PORT = 6;
+    public static final int DRIVE_ENCODER_INPUT_LEFT_A_DIO_PORT = 7;
+    public static final int DRIVE_ENCODER_INPUT_LEFT_B_DIO_PORT = 8;
+    public static final int DRIVE_ENCODER_INPUT_RIGHT_A_DIO_PORT = 9;
+    public static final int DRIVE_ENCODER_INPUT_RIGHT_B_DIO_PORT = 10;
     /**
      * PWM Ports
      */

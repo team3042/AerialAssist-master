@@ -14,12 +14,11 @@ public class DriveTrainTankDrive extends CommandBase {
     }
 
     protected void initialize() {
-        
     }
 
     protected void execute() {
         if (oi.driverRightJoystick.getRawButton(RobotMap.TANK_DRIVE_OVERRIDE)) {
-            driveTrain.tankDrive(oi.driverRightJoystick, oi.driverRightJoystick);  
+            driveTrain.tankDrive(oi.driverRightJoystick, oi.driverRightJoystick);
         } else if (oi.driverLeftJoystick.getRawButton(RobotMap.TANK_DRIVE_OVERRIDE)) {
             driveTrain.tankDrive(oi.driverLeftJoystick, oi.driverLeftJoystick);
         } else {

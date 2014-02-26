@@ -1,6 +1,7 @@
 package org.team3042.AerialAssist.commands;
 
 import edu.wpi.first.wpilibj.Timer;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.subsystems.CatapultSystem;
 
 /**
@@ -33,7 +34,9 @@ public class CatapultReverse extends CommandBase {
      * TODO: Document this.
      */
     protected void execute() {
-        catapult.reverse(SPEED);
+        double speed = SmartDashboard.getNumber("The Reverse Speed", SPEED);
+        catapult.reverse(speed);
+
     }
 
     /**

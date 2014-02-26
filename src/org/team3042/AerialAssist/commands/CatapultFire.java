@@ -20,9 +20,12 @@ public class CatapultFire extends CommandGroup {
          * Add a command so that default command for intake arm is maintain
          * position.
          */
+        addSequential(new CompressorStop());
         addSequential(new IntakePistonExtend());
         addSequential(new CatapultForward());
         addSequential(new CatapultReverse());
+        addSequential(new CompressorStart());
+
 
     }
 }

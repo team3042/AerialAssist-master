@@ -4,6 +4,7 @@
 package org.team3042.AerialAssist.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.team3042.AerialAssist.RobotMap;
 import org.team3042.AerialAssist.commands.IntakeMaintainPosition;
@@ -19,6 +20,7 @@ public class IntakeSystemPistons extends Subsystem {
      */
     Relay pistonArm = new Relay(RobotMap.INTAKE_SOLENOID_SPIKE_RELAY_PORT);
     private boolean extended = false;
+    private final Timer timer = new Timer();
 
     public IntakeSystemPistons() {
     }
@@ -29,13 +31,13 @@ public class IntakeSystemPistons extends Subsystem {
 
     public void extend() {
 
-        pistonArm.set(Relay.Value.kOn);
+        pistonArm.set(Relay.Value.kReverse);
         extended = true;
     }
 
     public void retract() {
 
-        pistonArm.set(Relay.Value.kReverse);
+        pistonArm.set(Relay.Value.kOn);
         extended = false;
     }
 
@@ -45,5 +47,21 @@ public class IntakeSystemPistons extends Subsystem {
         } else {
             this.retract();
         }
+    }
+
+    public void timerStart() {
+        if (extended == false) {
+            timer.reset();
+            timer.start();
+        }
+
+    }
+
+    public void timerEnd() {
+        timer.stop();
+    }
+
+    public double getTimer() {
+        return timer.get();
     }
 }

@@ -8,11 +8,14 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
- * @author Team 3042
+ * @author Robotics
  */
-public class IntakePass extends CommandGroup {
+public class AutoDriveShoot extends CommandGroup {
 
-    public IntakePass() {
+    public AutoDriveShoot() {
+        addSequential(new AutoDrive108In());
+        addSequential(new CatapultFire());
+
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -23,14 +26,11 @@ public class IntakePass extends CommandGroup {
         // e.g. addParallel(new Command1());
         //      addSequential(new Command2());
         // Command1 and Command2 will run in parallel.
+
         // A command group will require all of the subsystems that each member
         // would require.
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addParallel(new IntakePistonRetract());
-        addParallel(new IntakeMotorOut());
-        addSequential(new CatapultFeedPass());
-        addSequential(new CatapultReverse());
     }
 }

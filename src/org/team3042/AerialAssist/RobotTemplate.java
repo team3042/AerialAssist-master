@@ -8,9 +8,11 @@ package org.team3042.AerialAssist;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.team3042.AerialAssist.commands.AutoDriveShoot;
 import org.team3042.AerialAssist.commands.CommandBase;
 import org.team3042.AerialAssist.subsystems.RangeFinderSystem;
 
@@ -25,12 +27,16 @@ import org.team3042.AerialAssist.subsystems.RangeFinderSystem;
  */
 public class RobotTemplate extends IterativeRobot {
 
-    //Command autonomousCommand;
+    Command autonomousCommand;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
+        SmartDashboard.putNumber("The Reverse Speed", .250);
+        SmartDashboard.putNumber("The Forward Speed", 0.850);
+        autonomousCommand = new AutoDriveShoot();
         // instantiate the command used for the autonomous period
 
         // Initialize all subsystems
@@ -38,8 +44,9 @@ public class RobotTemplate extends IterativeRobot {
     }
 
     public void autonomousInit() {
+
         // schedule the autonomous command (example)
-        //autonomousCommand.start();
+        autonomousCommand.start();
     }
 
     /**
@@ -54,7 +61,7 @@ public class RobotTemplate extends IterativeRobot {
         // teleop starts running. If you want the autonomous to 
         // continue until interrupted by another command, remove
         // this line or comment it out.
-        //autonomousCommand.cancel();
+        autonomousCommand.cancel();
     }
 
     /**

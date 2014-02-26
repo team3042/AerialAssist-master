@@ -35,7 +35,7 @@ public class DriveTrainSystemGearShift extends Subsystem {
         shiftSpike.set(Relay.Value.kOff);
         isHigh = false;
     }
-    
+
     public boolean isHigh() {
         return isHigh;
     }

@@ -1,44 +1,33 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package org.team3042.AerialAssist.commands;
 
 /**
  *
- * @author Team 3042
+ * @author Robotics
  */
-public class DriveTrainShiftGears extends CommandBase {
+public class CompressorStart extends CommandBase {
 
-    private boolean isHigh;
-
-    public DriveTrainShiftGears(boolean isHigh) {
+    public CompressorStart() {
         // Use requires() here to declare subsystem dependencies
-        requires(shiftGears);
-        this.isHigh = isHigh;
+        // eg. requires(chassis);
+        requires(compressorSystem);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        compressorSystem.compressorStart();
     }
 
-    // Called repeatedly wcshen this Command is scheduled to run
+    // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        if (this.isHigh) {
-            shiftGears.shiftHigh();
-        } else {
-            shiftGears.shiftLow();
-        }
-    }
-
-    public boolean isHigh() {
-        return isHigh;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

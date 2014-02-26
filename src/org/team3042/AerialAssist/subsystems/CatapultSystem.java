@@ -60,7 +60,7 @@ public class CatapultSystem extends Subsystem {
      * TODO: Document this.
      */
     public void forward(double speed) {
-        CatapultMotorLeft.set(speed);
+        CatapultMotorLeft.set(-speed);//See reverse()
         CatapultMotorRight.set(-speed);
     }
 
@@ -75,7 +75,7 @@ public class CatapultSystem extends Subsystem {
      * TODO: Document this.
      */
     public void reverse(double speed) {
-        CatapultMotorLeft.set(-speed);
+        CatapultMotorLeft.set(speed); //Inversion of left motor direction for bot 2, also done in forward()
         CatapultMotorRight.set(speed);
     }
 

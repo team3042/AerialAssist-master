@@ -7,8 +7,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.commands.CatapultFire;
 import org.team3042.AerialAssist.commands.DriveTrainShiftGears;
 import org.team3042.AerialAssist.commands.IntakeMotorIn;
-import org.team3042.AerialAssist.commands.IntakeMotorOut;
 import org.team3042.AerialAssist.commands.IntakeMotorStop;
+import org.team3042.AerialAssist.commands.IntakePass;
 import org.team3042.AerialAssist.commands.IntakePistonExtend;
 import org.team3042.AerialAssist.commands.IntakePistonRetract;
 
@@ -23,10 +23,8 @@ public class OI {
     public Joystick driverLeftJoystick = new Joystick(RobotMap.JOYSTICK_1);
     public Joystick driverRightJoystick = new Joystick(RobotMap.JOYSTICK_2);
     private final Joystick gunner = new Joystick(RobotMap.JOYSTICK_3);
-
     private final Button rTrig = new JoystickButton(driverRightJoystick, RobotMap.TRIGGER_BUTTON);
-    private final Button lTrig = new JoystickButton(driverLeftJoystick, RobotMap.TRIGGER_BUTTON); 
-
+    private final Button lTrig = new JoystickButton(driverLeftJoystick, RobotMap.TRIGGER_BUTTON);
     private final Button gb1 = new JoystickButton(gunner, RobotMap.TRIGGER_BUTTON);
     private final Button gb2 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_2);
     private final Button gb3 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_3);
@@ -38,12 +36,12 @@ public class OI {
      * This binds the controls to the correct commands
      */
     public OI() {
-        SmartDashboard.putNumber("Left Low Scale", 1.0);
+        SmartDashboard.putNumber("Left Low Scale", .98);
         SmartDashboard.putNumber("Right Low Scale", 1.0);
-        SmartDashboard.putNumber("Left High Scale", 1.0);
+        SmartDashboard.putNumber("Left High Scale", .9);
         SmartDashboard.putNumber("Right High Scale", 1.0);
-        
-        
+
+
         /**
          * When either drive trigger is held, shift to high gear
          */
@@ -62,7 +60,7 @@ public class OI {
          */
         gb2.whenPressed(new IntakeMotorStop());
         gb5.whenPressed(new IntakeMotorIn());
-        gb6.whenPressed(new IntakeMotorOut());
+        gb6.whenPressed(new IntakePass());
         gb3.whenPressed(new IntakePistonExtend());
         gb4.whenPressed(new IntakePistonRetract());
     }
