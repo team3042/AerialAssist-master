@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class AutoDriveShoot extends CommandGroup {
 
     public AutoDriveShoot() {
+        addParallel(new IntakePistonExtend());
         addSequential(new AutoDrive108In());
         addSequential(new CatapultFire());
 

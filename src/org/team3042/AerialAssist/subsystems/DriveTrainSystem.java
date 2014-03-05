@@ -17,11 +17,7 @@ public class DriveTrainSystem extends Subsystem {
 
     private final RobotDrive robotDrive = new RobotDrive(RobotMap.DRIVE_TRAIN_LEFT_MOTOR_PWM_PORT,
             RobotMap.DRIVE_TRAIN_RIGHT_MOTOR_PWM_PORT);
-    /**
-     * Drive calibration to overcome hardware differences
-     */
-    private static final double LEFT_ADJUST = 1.0;
-    private static final double RIGHT_ADJUST = 1.0;
+   
     /**
      * Encoder Conversion Factor
      */
@@ -65,9 +61,13 @@ public class DriveTrainSystem extends Subsystem {
         if (CommandBase.shiftGears.isHigh()) {
             leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", 1.0);
             rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", 1.0);
+           
+                          
+            
         } else {
             leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", 1.0);
             rightValue = rightSpeed * SmartDashboard.getNumber("Right High Scale", 1.0);
+          
         }
         robotDrive.tankDrive(leftValue, rightValue);
     }
@@ -94,8 +94,12 @@ public class DriveTrainSystem extends Subsystem {
     }
 
     public double encoderAverage() {
-        double average = (driveLeftEncoder.getDistance()
-                + driveRightEncoder.getDistance()) * .5;
+       // System.out.println("left" + driveLeftEncoder.getDistance());
+      //  System.out.println("right" + driveRightEncoder.getDistance());
+      //  double average = (Math.abs(driveLeftEncoder.getDistance())
+               // + Math.abs(driveRightEncoder.getDistance())) * .5;
+       double average = Math.abs(driveRightEncoder.getDistance());
         return average;
+        
     }
 }

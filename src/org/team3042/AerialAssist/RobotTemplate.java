@@ -8,8 +8,11 @@ package org.team3042.AerialAssist;
 
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.image.ColorImage;
+import edu.wpi.first.wpilibj.image.NIVisionException;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.commands.AutoDriveShoot;
@@ -41,11 +44,14 @@ public class RobotTemplate extends IterativeRobot {
 
         // Initialize all subsystems
         CommandBase.init();
+        //Setup camera settings
+        CommandBase.camera.autonCameraConfig();
     }
 
     public void autonomousInit() {
 
         // schedule the autonomous command (example)
+        CommandBase.camera.autonCameraConfig();
         autonomousCommand.start();
     }
 
@@ -62,6 +68,7 @@ public class RobotTemplate extends IterativeRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         autonomousCommand.cancel();
+        CommandBase.camera.teleopCameraConfig();
     }
 
     /**
@@ -73,10 +80,14 @@ public class RobotTemplate extends IterativeRobot {
         SmartDashboard.putNumber("Battery Volatge", DriverStation.getInstance().getBatteryVoltage());
     }
 
+    
+    public void testInit() {
+            System.out.println("### Is hot: " + CommandBase.camera.isHot());
+    }
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+        //LiveWindow.run();
     }
 }

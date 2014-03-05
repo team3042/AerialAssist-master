@@ -33,11 +33,11 @@ public class CatapultForward extends CommandBase {
     protected void initialize() {
         speed = SmartDashboard.getNumber("The Forward Speed", SPEED);
         stoppingAngle = (int) (SmartDashboard.getNumber("The Angle", DEFAULT_ANGLE) * TICK_TO_ANGLE);
-        System.out.println(speed);
-        System.out.println(stoppingAngle);
+        //System.out.println(speed);
+        //System.out.println(stoppingAngle);
         timer.start();
         String log = "Time: " + DriverStation.getInstance().getMatchTime() + ", Voltage: " + DriverStation.getInstance().getBatteryVoltage() + ", power: " + speed;
-        System.out.println(log);
+       // System.out.println(log);
         DriverStationLCD d = DriverStationLCD.getInstance();
         d.println(DriverStationLCD.Line.kUser1, 1, "Time: " + DriverStation.getInstance().getMatchTime());
         d.println(DriverStationLCD.Line.kUser2, 1, "Voltage: " + DriverStation.getInstance().getBatteryVoltage());

@@ -10,7 +10,7 @@ package org.team3042.AerialAssist.commands;
  */
 public class IntakePistonExtend extends CommandBase {
 
-    private static final double TIME_END = 2.0;
+    private static final double TIME_END = 4.5;
 
     public IntakePistonExtend() {
         requires(intakePiston);
