@@ -28,6 +28,7 @@ public class CatapultReverse extends CommandBase {
      */
     protected void initialize() {
         timer.start();
+        //NB do not reset the catapult encoder, as we go until we've gotten rid of angle accumulated
     }
 
     /**
@@ -35,8 +36,9 @@ public class CatapultReverse extends CommandBase {
      */
     protected void execute() {
         double speed = SmartDashboard.getNumber("The Reverse Speed", SPEED);
-        catapult.reverse(speed);
-
+        
+            catapult.reverse(speed);
+        
     }
 
     /**

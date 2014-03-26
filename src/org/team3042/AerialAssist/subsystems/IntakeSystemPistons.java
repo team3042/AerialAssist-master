@@ -4,6 +4,7 @@
 package org.team3042.AerialAssist.subsystems;
 
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import org.team3042.AerialAssist.RobotMap;
@@ -19,6 +20,7 @@ public class IntakeSystemPistons extends Subsystem {
      * Create Subsystem objects
      */
     Relay pistonArm = new Relay(RobotMap.INTAKE_SOLENOID_SPIKE_RELAY_PORT);
+    DigitalInput armOutSensor = new DigitalInput(RobotMap.INTAKE_SWITCH_DIO_PORT); 
     private boolean extended = false;
     private final Timer timer = new Timer();
 
@@ -33,6 +35,10 @@ public class IntakeSystemPistons extends Subsystem {
 
         pistonArm.set(Relay.Value.kReverse);
         extended = true;
+    }
+    
+    public boolean switchStatus(){
+        return armOutSensor.get();
     }
 
     public void retract() {

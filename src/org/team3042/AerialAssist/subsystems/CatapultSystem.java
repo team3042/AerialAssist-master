@@ -3,6 +3,7 @@ package org.team3042.AerialAssist.subsystems;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.RobotMap;
 import org.team3042.AerialAssist.commands.CatapultDoNothing;
 
@@ -31,14 +32,6 @@ public class CatapultSystem extends Subsystem {
     /**
      * TODO: Document this.
      */
-    private static final boolean LEAF_SWITH_OPEN = true;
-    /**
-     * TODO: Document this.
-     */
-    private static final boolean LEAF_SWITCH_CLOSED = false;
-    /**
-     * TODO: Document this.
-     */
     private static final double MOTOR_STOP = 0.0;
 
     /**
@@ -60,7 +53,8 @@ public class CatapultSystem extends Subsystem {
      * TODO: Document this.
      */
     public void forward(double speed) {
-        CatapultMotorLeft.set(-speed);//See reverse()
+        speed = Math.abs(speed);
+        CatapultMotorLeft.set(-speed);//For CID': -speed   For CID2: ?????-speed
         CatapultMotorRight.set(-speed);
     }
 
@@ -68,14 +62,16 @@ public class CatapultSystem extends Subsystem {
      * TODO: Document this.
      */
     public int getAngle() {
-        return -CatapultAngle.get();
+        SmartDashboard.putNumber("Catapult enc val", Math.abs(CatapultAngle.get()));
+        return Math.abs(CatapultAngle.get());//For all CID': -CatapultAngle.get();
     }
 
     /**
      * TODO: Document this.
      */
     public void reverse(double speed) {
-        CatapultMotorLeft.set(speed); //Inversion of left motor direction for bot 2, also done in forward()
+        speed = Math.abs(speed);
+        CatapultMotorLeft.set(speed); //For CID': speed   For CID2: ?????speed
         CatapultMotorRight.set(speed);
     }
 

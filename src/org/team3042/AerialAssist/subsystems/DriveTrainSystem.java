@@ -1,6 +1,7 @@
 package org.team3042.AerialAssist.subsystems;
 
 import edu.wpi.first.wpilibj.Encoder;
+import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -15,20 +16,22 @@ import org.team3042.AerialAssist.commands.DriveTrainTankDrive;
  */
 public class DriveTrainSystem extends Subsystem {
 
-    private final RobotDrive robotDrive = new RobotDrive(RobotMap.DRIVE_TRAIN_LEFT_MOTOR_PWM_PORT,
-            RobotMap.DRIVE_TRAIN_RIGHT_MOTOR_PWM_PORT);
-   
+    private final Jaguar leftDriveJag = new Jaguar(RobotMap.DRIVE_TRAIN_LEFT_MOTOR_PWM_PORT);
+    private final Jaguar rightDriveJag = new Jaguar(RobotMap.DRIVE_TRAIN_RIGHT_MOTOR_PWM_PORT);
+    private final RobotDrive robotDrive = new RobotDrive(leftDriveJag,
+            rightDriveJag);
     /**
      * Encoder Conversion Factor
      */
-    private static final double ENCODER_INCHES_PER_TICK = 0.0785;
+    public static final double ENCODER_INCHES_PER_TICK = 0.0785;
     /**
      * Drive Train Encoders
      */
-    private final Encoder driveLeftEncoder = new Encoder(
+    //TODO jjkoletar 3/6/14 private->public
+    public final Encoder driveLeftEncoder = new Encoder(
             RobotMap.DRIVE_ENCODER_INPUT_LEFT_A_DIO_PORT,
             RobotMap.DRIVE_ENCODER_INPUT_LEFT_B_DIO_PORT);
-    private final Encoder driveRightEncoder = new Encoder(
+    public final Encoder driveRightEncoder = new Encoder(
             RobotMap.DRIVE_ENCODER_INPUT_RIGHT_A_DIO_PORT,
             RobotMap.DRIVE_ENCODER_INPUT_RIGHT_B_DIO_PORT);
 
@@ -61,13 +64,13 @@ public class DriveTrainSystem extends Subsystem {
         if (CommandBase.shiftGears.isHigh()) {
             leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", 1.0);
             rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", 1.0);
-           
-                          
-            
+
+
+
         } else {
             leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", 1.0);
             rightValue = rightSpeed * SmartDashboard.getNumber("Right High Scale", 1.0);
-          
+
         }
         robotDrive.tankDrive(leftValue, rightValue);
     }
@@ -82,10 +85,10 @@ public class DriveTrainSystem extends Subsystem {
     }
 
     public void encoderStart() {
-        driveLeftEncoder.start();
-        driveRightEncoder.start();
         driveLeftEncoder.setDistancePerPulse(ENCODER_INCHES_PER_TICK);
         driveRightEncoder.setDistancePerPulse(ENCODER_INCHES_PER_TICK);
+        driveLeftEncoder.start();
+        driveRightEncoder.start();
     }
 
     public void encoderStop() {
@@ -94,12 +97,12 @@ public class DriveTrainSystem extends Subsystem {
     }
 
     public double encoderAverage() {
-       // System.out.println("left" + driveLeftEncoder.getDistance());
-      //  System.out.println("right" + driveRightEncoder.getDistance());
-      //  double average = (Math.abs(driveLeftEncoder.getDistance())
-               // + Math.abs(driveRightEncoder.getDistance())) * .5;
-       double average = Math.abs(driveRightEncoder.getDistance());
+        // System.out.println("left" + driveLeftEncoder.getDistance());
+        //  System.out.println("right" + driveRightEncoder.getDistance());
+        //  double average = (Math.abs(driveLeftEncoder.getDistance())
+        // + Math.abs(driveRightEncoder.getDistance())) * .5;
+        double average = Math.abs(driveRightEncoder.getDistance());
         return average;
-        
+
     }
 }

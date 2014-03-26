@@ -1,5 +1,7 @@
 package org.team3042.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 /**
  * TODO: Document this.
  *

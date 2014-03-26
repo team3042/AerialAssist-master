@@ -28,7 +28,7 @@ public abstract class CommandBase extends Command {
     public static final CatapultSystem catapult = new CatapultSystem();
     public static final DriveTrainSystemGearShift shiftGears = new DriveTrainSystemGearShift();
     public static final RangeFinderSystem rangeFinder = new RangeFinderSystem();
-    public static final CameraSystem camera = new CameraSystem();
+    //public static final CameraSystem camera = new CameraSystem();
 
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

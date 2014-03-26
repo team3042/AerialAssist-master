@@ -47,7 +47,7 @@ public class CameraSystem extends Subsystem {
         double aspectRatioVertical;
         double aspectRatioHorizontal;
     }
-    
+
     public class TargetReport {
 
         int verticalIndex;
@@ -63,7 +63,7 @@ public class CameraSystem extends Subsystem {
     public CameraSystem() {
         cc.addCriteria(NIVision.MeasurementType.IMAQ_MT_AREA, AREA_MINIMUM, 65535, false);
     }
-    
+
     public void initDefaultCommand() {
         setDefaultCommand(new CameraUpdater());
     }
@@ -118,7 +118,7 @@ public class CameraSystem extends Subsystem {
         //iterate through each particle and score to see if it is a target
         Scores scores[] = new Scores[filteredImage.getNumberParticles()];
         horizontalTargetCount = verticalTargetCount = 0;
-        
+
         if (filteredImage.getNumberParticles() > 0) {
             for (int i = 0; i < MAX_PARTICLES && i < filteredImage.getNumberParticles(); i++) {
                 ParticleAnalysisReport report = filteredImage.getParticleAnalysisReport(i);
@@ -140,7 +140,7 @@ public class CameraSystem extends Subsystem {
                     System.out.println("particle: " + i + "is not a Target centerX: " + report.center_mass_x + "centerY: " + report.center_mass_y);
                 }
                 System.out.println("rect: " + scores[i].rectangularity + "ARHoriz: " + scores[i].aspectRatioHorizontal);
-                System.out.println("ARVert: " + scores[i].aspectRatioVertical);                
+                System.out.println("ARVert: " + scores[i].aspectRatioVertical);
             }
 
             //Zero out scores and set verticalIndex to first target in case there are no horizontal targets
@@ -182,7 +182,7 @@ public class CameraSystem extends Subsystem {
                 //Determine if the best target is a Hot target
                 target.Hot = hotOrNot(target);
             }
-            
+
             if (verticalTargetCount > 0) {
                 //Information about the target is contained in the "target" structure
                 //To get measurement information such as sizes or locations use the
@@ -228,13 +228,13 @@ public class CameraSystem extends Subsystem {
     double computeDistance(BinaryImage image, ParticleAnalysisReport report, int particleNumber) throws NIVisionException {
         double rectLong, height;
         int targetHeight;
-        
+
         rectLong = NIVision.MeasureParticle(image.image, particleNumber, false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE);
         //using the smaller of the estimated rectangle long side and the bounding rectangle height results in better performance
         //on skewed rectangles
         height = Math.min(report.boundingRectHeight, rectLong);
         targetHeight = 32;
-        
+
         return Y_IMAGE_RES * targetHeight / (height * 12 * 2 * Math.tan(VIEW_ANGLE * Math.PI / (180 * 2)));
     }
 
@@ -255,7 +255,7 @@ public class CameraSystem extends Subsystem {
      */
     public double scoreAspectRatio(BinaryImage image, ParticleAnalysisReport report, int particleNumber, boolean vertical) throws NIVisionException {
         double rectLong, rectShort, aspectRatio, idealAspectRatio;
-        
+
         rectLong = NIVision.MeasureParticle(image.image, particleNumber, false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_LONG_SIDE);
         rectShort = NIVision.MeasureParticle(image.image, particleNumber, false, NIVision.MeasurementType.IMAQ_MT_EQUIVALENT_RECT_SHORT_SIDE);
         idealAspectRatio = vertical ? (4.0 / 32) : (23.5 / 4);	//Vertical reflector 4" wide x 32" tall, horizontal 23.5" wide x 4" tall
@@ -283,14 +283,14 @@ public class CameraSystem extends Subsystem {
      */
     boolean scoreCompare(Scores scores, boolean vertical) {
         boolean isTarget = true;
-        
+
         isTarget &= scores.rectangularity > RECTANGULARITY_LIMIT;
         if (vertical) {
             isTarget &= scores.aspectRatioVertical > ASPECT_RATIO_LIMIT;
         } else {
             isTarget &= scores.aspectRatioHorizontal > ASPECT_RATIO_LIMIT;
         }
-        
+
         return isTarget;
     }
 
@@ -307,7 +307,7 @@ public class CameraSystem extends Subsystem {
             return 100 * report.particleArea / (report.boundingRectWidth * report.boundingRectHeight);
         } else {
             return 0;
-        }        
+        }
     }
 
     /**
@@ -327,11 +327,11 @@ public class CameraSystem extends Subsystem {
      */
     boolean hotOrNot(TargetReport target) {
         boolean isHot = true;
-        
+
         isHot &= target.tapeWidthScore >= TAPE_WIDTH_LIMIT;
         isHot &= target.verticalScore >= VERTICAL_SCORE_LIMIT;
         isHot &= (target.leftScore > LR_SCORE_LIMIT) | (target.rightScore > LR_SCORE_LIMIT);
-        
+
         return isHot;
     }
 }

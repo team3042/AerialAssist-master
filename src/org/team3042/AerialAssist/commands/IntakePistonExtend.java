@@ -4,13 +4,15 @@
  */
 package org.team3042.AerialAssist.commands;
 
+import org.team3042.AerialAssist.RobotMap;
+
 /**
  *
  * @author Team 3042
  */
 public class IntakePistonExtend extends CommandBase {
 
-    private static final double TIME_END = 4.5;
+    private static final double TIME_END = 2;
 
     public IntakePistonExtend() {
         requires(intakePiston);
@@ -20,7 +22,7 @@ public class IntakePistonExtend extends CommandBase {
      * Called just before this Command runs the first time
      */
     protected void initialize() {
-        intakePiston.timerStart();
+       // intakePiston.timerStart();
     }
 
     /**
@@ -35,8 +37,12 @@ public class IntakePistonExtend extends CommandBase {
      */
     protected boolean isFinished() {
         boolean finished = false;
-        System.out.println(intakePiston.getTimer());
-        if (intakePiston.getTimer() >= TIME_END) {
+        //System.out.println(intakePiston.getTimer());
+        //if (intakePiston.getTimer() >= TIME_END) {
+          //  finished = true;
+        //}
+        if (intakePiston.switchStatus() || 
+                oi.gunner.getRawButton(RobotMap.INTAKE_PISTON_OVERRIDE)){
             finished = true;
         }
         return finished;

@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class CameraUpdater extends CommandBase {
 
     public CameraUpdater() {
-        requires(camera);
+        //requires(camera);
         setRunWhenDisabled(true); // We want the camera to have a status ready for auton
     }
     private long started = 0;
@@ -30,14 +30,14 @@ public class CameraUpdater extends CommandBase {
     protected void execute() {
         //If the last time we updated is > 20 seconds ago
         if (System.currentTimeMillis() - started > 20 * 1000) {
-            camera.update();
+            //camera.update();
             // CMB - What exactly does camera.update() update?
             // CMB - Only get a picture every 20 seconds? 
             // Or once after 3 secords then every 20?
             // Don't you miss this if it is not hot initally?
             started = System.currentTimeMillis();
         }
-        SmartDashboard.putBoolean("Is goal hot", camera.isHot());
+       // SmartDashboard.putBoolean("Is goal hot", camera.isHot());
     }
 
     // Make this return true when this Command no longer needs to run execute()

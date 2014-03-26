@@ -13,11 +13,14 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class AutoDrive108In extends CommandBase {
 
-    private static final double DRIVE_SPEED = 1.0;
+    private static final double DRIVE_SPEED = 0.85;
     private static final double DRIVE_STOP = 0.0;
-    private static final double DRIVE_DISTANCE = 108;
+    private static double DRIVE_DISTANCE = 86; //166;  //106;
     private static final double STOP_TIME = 100;
+    private double lOffset = 1;
+    private double rOffset = 1;
     private Timer timer = new Timer();
+
     public AutoDrive108In() {
         requires(driveTrain);
         // Use requires() here to declare subsystem dependencies
@@ -30,22 +33,35 @@ public class AutoDrive108In extends CommandBase {
         driveTrain.encoderStart();
         timer.reset();
         timer.start();
+        lOffset = SmartDashboard.getNumber("auto left", 1);
+        rOffset = SmartDashboard.getNumber("auto right", 0.9);
+        DRIVE_DISTANCE = SmartDashboard.getNumber("Auto Distance", 86);
+        
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        driveTrain.tankDrive(-DRIVE_SPEED, -DRIVE_SPEED);
+        //if (stoppingAt == 0) {
+            driveTrain.tankDrive(-DRIVE_SPEED * lOffset, -DRIVE_SPEED * rOffset);
+            SmartDashboard.putNumber("Left encoder", driveTrain.driveLeftEncoder.getDistance());
+            SmartDashboard.putNumber("Right encoder", driveTrain.driveRightEncoder.getDistance());
+       // }        else { driveTrain.tankDrive(0, 0);}
 
     }
-
+    double stoppingAt = 0;
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         boolean driveFinished = false;
         SmartDashboard.putNumber("Encoder auton", driveTrain.encoderAverage());
-        if (driveTrain.encoderAverage() >= DRIVE_DISTANCE) {
+        if (driveTrain.encoderAverage() >= DRIVE_DISTANCE){ // && stoppingAt == 0) {
+            //driveTrain.tankDrive(DRIVE_STOP, DRIVE_STOP);
+            //stoppingAt = timer.get();
             driveFinished = true;
         }
-        if (timer.get()> STOP_TIME){
+        /*if (stoppingAt > 0 && timer.get() > (stoppingAt + 0.5)) {
+            driveFinished = true;
+        }*/
+        if (timer.get() > STOP_TIME) {
             driveFinished = true;
         }
         return driveFinished;

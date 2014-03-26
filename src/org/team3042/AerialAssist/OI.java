@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.commands.CatapultFire;
+import org.team3042.AerialAssist.commands.CatapultLayup;
 import org.team3042.AerialAssist.commands.DriveTrainShiftGears;
 import org.team3042.AerialAssist.commands.IntakeMotorIn;
 import org.team3042.AerialAssist.commands.IntakeMotorStop;
@@ -22,7 +23,7 @@ public class OI {
 
     public Joystick driverLeftJoystick = new Joystick(RobotMap.JOYSTICK_1);
     public Joystick driverRightJoystick = new Joystick(RobotMap.JOYSTICK_2);
-    private final Joystick gunner = new Joystick(RobotMap.JOYSTICK_3);
+    public final Joystick gunner = new Joystick(RobotMap.JOYSTICK_3);
     private final Button rTrig = new JoystickButton(driverRightJoystick, RobotMap.TRIGGER_BUTTON);
     private final Button lTrig = new JoystickButton(driverLeftJoystick, RobotMap.TRIGGER_BUTTON);
     private final Button gb1 = new JoystickButton(gunner, RobotMap.TRIGGER_BUTTON);
@@ -31,7 +32,7 @@ public class OI {
     private final Button gb4 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_4);
     private final Button gb6 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_6);
     private final Button gb5 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_5);
-
+    private final Button gb11 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_11);
     /**
      * This binds the controls to the correct commands
      */
@@ -61,7 +62,8 @@ public class OI {
         gb2.whenPressed(new IntakeMotorStop());
         gb5.whenPressed(new IntakeMotorIn());
         gb6.whenPressed(new IntakePass());
-        gb3.whenPressed(new IntakePistonExtend());
-        gb4.whenPressed(new IntakePistonRetract());
+        gb4.whenPressed(new IntakePistonExtend());
+        gb3.whenPressed(new IntakePistonRetract());
+        gb11.whenPressed(new CatapultLayup());
     }
 }

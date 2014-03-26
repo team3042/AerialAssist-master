@@ -28,9 +28,13 @@ public class IntakePass extends CommandGroup {
         // e.g. if Command1 requires chassis, and Command2 requires arm,
         // a CommandGroup containing them would require both the chassis and the
         // arm.
-        addParallel(new IntakePistonRetract());
+        
+        /**
+         * Talked to Isaac
+         */
+        //addParallel(new IntakePistonRetract());
         addParallel(new IntakeMotorOut());
         addSequential(new CatapultFeedPass());
-        addSequential(new CatapultReverse());
+        addSequential(new CatapultDoNothing());
     }
 }

@@ -26,6 +26,7 @@ public class RobotMap {
     public static final int DRIVE_ENCODER_INPUT_LEFT_B_DIO_PORT = 8;
     public static final int DRIVE_ENCODER_INPUT_RIGHT_A_DIO_PORT = 9;
     public static final int DRIVE_ENCODER_INPUT_RIGHT_B_DIO_PORT = 10;
+    public static final int INTAKE_SWITCH_DIO_PORT = 12;
     /**
      * PWM Ports
      */
@@ -55,6 +56,7 @@ public class RobotMap {
     public static final int JOYSTICK_BUTTON_5 = 5;
     public static final int JOYSTICK_BUTTON_6 = 6;
     public static final int JOYSTICK_BUTTON_7 = 7;
+    public static final int INTAKE_PISTON_OVERRIDE = 7;
     public static final int JOYSTICK_BUTTON_8 = 8;
     public static final int JOYSTICK_BUTTON_9 = 9;
     public static final int JOYSTICK_BUTTON_10 = 10;
