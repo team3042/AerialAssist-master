@@ -16,6 +16,7 @@ public class AutoDriveShoot extends CommandGroup {
         addParallel(new IntakePistonExtend());
         addParallel(new CompressorStop());
         addSequential(new AutoDrive108In());
+        addSequential(new AutoDelayFire());
         //addSequential(new PIDDrive(108));
         addSequential(new CatapultFire());
 

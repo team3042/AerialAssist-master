@@ -15,11 +15,12 @@ public class AutoDrive108In extends CommandBase {
 
     private static final double DRIVE_SPEED = 0.85;
     private static final double DRIVE_STOP = 0.0;
-    private static double DRIVE_DISTANCE = 86; //166;  //106;
-    private static final double STOP_TIME = 100;
+    public static double DRIVE_DISTANCE = 115; //166;  //106;
+    private static final double STOP_TIME = 20;
     private double lOffset = 1;
     private double rOffset = 1;
     private Timer timer = new Timer();
+    
 
     public AutoDrive108In() {
         requires(driveTrain);
@@ -33,9 +34,9 @@ public class AutoDrive108In extends CommandBase {
         driveTrain.encoderStart();
         timer.reset();
         timer.start();
-        lOffset = SmartDashboard.getNumber("auto left", 1);
-        rOffset = SmartDashboard.getNumber("auto right", 0.9);
-        DRIVE_DISTANCE = SmartDashboard.getNumber("Auto Distance", 86);
+        lOffset = SmartDashboard.getNumber("auto left", 1.0);
+        rOffset = SmartDashboard.getNumber("auto right", 1.0);
+        DRIVE_DISTANCE = SmartDashboard.getNumber("Auto Distance", DRIVE_DISTANCE);
         
     }
 
@@ -54,10 +55,12 @@ public class AutoDrive108In extends CommandBase {
         boolean driveFinished = false;
         SmartDashboard.putNumber("Encoder auton", driveTrain.encoderAverage());
         if (driveTrain.encoderAverage() >= DRIVE_DISTANCE){ // && stoppingAt == 0) {
+            driveFinished = true;
             //driveTrain.tankDrive(DRIVE_STOP, DRIVE_STOP);
             //stoppingAt = timer.get();
-            driveFinished = true;
+            
         }
+       
         /*if (stoppingAt > 0 && timer.get() > (stoppingAt + 0.5)) {
             driveFinished = true;
         }*/

@@ -34,7 +34,7 @@ public class IntakePass extends CommandGroup {
          */
         //addParallel(new IntakePistonRetract());
         addParallel(new IntakeMotorOut());
-        addSequential(new CatapultFeedPass());
+        //addSequential(new CatapultFeedPass());
         addSequential(new CatapultDoNothing());
     }
 }

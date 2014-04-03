@@ -4,6 +4,7 @@
  */
 package org.team3042.AerialAssist.commands;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.RobotMap;
 
 /**
@@ -30,6 +31,8 @@ public class IntakePistonExtend extends CommandBase {
      */
     protected void execute() {
         intakePiston.extend();
+        
+        
     }
 
     /**
@@ -41,7 +44,9 @@ public class IntakePistonExtend extends CommandBase {
         //if (intakePiston.getTimer() >= TIME_END) {
           //  finished = true;
         //}
-        if (intakePiston.switchStatus() || 
+        System.out.println("Intake Switch Position" + intakePiston.switchStatus());
+        
+        if ((intakePiston.switchStatus() == false) || 
                 oi.gunner.getRawButton(RobotMap.INTAKE_PISTON_OVERRIDE)){
             finished = true;
         }

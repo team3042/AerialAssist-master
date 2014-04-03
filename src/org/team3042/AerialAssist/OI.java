@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.team3042.AerialAssist.commands.CatapultFire;
 import org.team3042.AerialAssist.commands.CatapultLayup;
+import org.team3042.AerialAssist.commands.CatapultReverse;
 import org.team3042.AerialAssist.commands.DriveTrainShiftGears;
 import org.team3042.AerialAssist.commands.IntakeMotorIn;
 import org.team3042.AerialAssist.commands.IntakeMotorStop;
@@ -33,13 +34,14 @@ public class OI {
     private final Button gb6 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_6);
     private final Button gb5 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_5);
     private final Button gb11 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_11);
+    private final Button gb12 = new JoystickButton(gunner, RobotMap.JOYSTICK_BUTTON_12);
     /**
      * This binds the controls to the correct commands
      */
     public OI() {
-        SmartDashboard.putNumber("Left Low Scale", .98);
+        SmartDashboard.putNumber("Left Low Scale", 1.0);
         SmartDashboard.putNumber("Right Low Scale", 1.0);
-        SmartDashboard.putNumber("Left High Scale", .9);
+        SmartDashboard.putNumber("Left High Scale", 1.0);
         SmartDashboard.putNumber("Right High Scale", 1.0);
 
 
@@ -65,5 +67,9 @@ public class OI {
         gb4.whenPressed(new IntakePistonExtend());
         gb3.whenPressed(new IntakePistonRetract());
         gb11.whenPressed(new CatapultLayup());
+        /**
+         * This is only for override should the catapult get stuck.
+         */
+        gb12.whenPressed(new CatapultReverse());
     }
 }

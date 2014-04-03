@@ -4,33 +4,39 @@
  */
 package org.team3042.AerialAssist.commands;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  *
- * @author Team 3042
+ * @author Robotics
  */
-public class IntakeMaintainPosition extends CommandBase {
-
-    public IntakeMaintainPosition() {
-        requires(intakePiston);
+public class AutoDelayFire extends CommandBase {
+    Timer delayTimer = new Timer();
+    
+    public AutoDelayFire() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+        delayTimer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        intakePiston.maintain();
-        SmartDashboard.putBoolean("Arm Switch", intakePiston.switchStatus());
         
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        boolean timeDone = false;
+        if (delayTimer.get() > 0.5){
+        timeDone = true;
+        
     }
+        return timeDone;
+   }
 
     // Called once after isFinished returns true
     protected void end() {

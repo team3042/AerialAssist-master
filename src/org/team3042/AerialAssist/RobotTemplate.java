@@ -16,6 +16,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import javax.microedition.io.Connector;
+import org.team3042.AerialAssist.commands.AutoDrive108In;
 import org.team3042.AerialAssist.commands.AutoDriveShoot;
 import org.team3042.AerialAssist.commands.CatapultForward;
 import org.team3042.AerialAssist.commands.CommandBase;
@@ -45,9 +46,9 @@ public class RobotTemplate extends IterativeRobot {
         SmartDashboard.putNumber("P", 0.2);
         SmartDashboard.putNumber("I", 0);
         SmartDashboard.putNumber("D", 0);
-        SmartDashboard.putNumber("auto left", 1);
-        SmartDashboard.putNumber("auto right", 0.9);
-        SmartDashboard.putNumber("Auto Distance", 86);
+        SmartDashboard.putNumber("auto left", 1.0);
+        SmartDashboard.putNumber("auto right", 1.0);
+        SmartDashboard.putNumber("Auto Distance", AutoDrive108In.DRIVE_DISTANCE);
         // Create subsystems so that auton command have hardware to talk to 
         CommandBase.init();
         // Instantiate the auton command each auton init so no carryover //autonomousCommand = new AutoDriveShoot();
@@ -96,6 +97,7 @@ public class RobotTemplate extends IterativeRobot {
         Scheduler.getInstance().run();
         SmartDashboard.putNumber("The Range", RangeFinderSystem.getRange());
         SmartDashboard.putNumber("Battery Volatge", DriverStation.getInstance().getBatteryVoltage());
+        
     }
 
     public void testInit() {

@@ -62,14 +62,14 @@ public class DriveTrainSystem extends Subsystem {
         double leftValue;
         double rightValue;
         if (CommandBase.shiftGears.isHigh()) {
-            leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", 1.0);
-            rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", 1.0);
+            leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", 1.0);
+            rightValue = rightSpeed * SmartDashboard.getNumber("Right Higjh Scale", 1.0);
 
 
 
         } else {
-            leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", 1.0);
-            rightValue = rightSpeed * SmartDashboard.getNumber("Right High Scale", 1.0);
+            leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", 1.0);
+            rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", 1.0);
 
         }
         robotDrive.tankDrive(leftValue, rightValue);
