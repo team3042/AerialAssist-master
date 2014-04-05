@@ -13,6 +13,7 @@ import org.team3042.AerialAssist.commands.IntakeMotorStop;
 import org.team3042.AerialAssist.commands.IntakePass;
 import org.team3042.AerialAssist.commands.IntakePistonExtend;
 import org.team3042.AerialAssist.commands.IntakePistonRetract;
+import org.team3042.AerialAssist.subsystems.DriveTrainSystem;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,10 +40,10 @@ public class OI {
      * This binds the controls to the correct commands
      */
     public OI() {
-        SmartDashboard.putNumber("Left Low Scale", 1.0);
-        SmartDashboard.putNumber("Right Low Scale", 1.0);
-        SmartDashboard.putNumber("Left High Scale", 1.0);
-        SmartDashboard.putNumber("Right High Scale", 1.0);
+        SmartDashboard.putNumber("Left Low Scale", DriveTrainSystem.LEFT_LOW_SCALER);
+        SmartDashboard.putNumber("Right Low Scale", DriveTrainSystem.RIGHT_LOW_SCALER);
+        SmartDashboard.putNumber("Left High Scale", DriveTrainSystem.LEFT_HIGH_SCALER);
+        SmartDashboard.putNumber("Right High Scale", DriveTrainSystem.RIGHT_HIGH_SCALER);
 
 
         /**

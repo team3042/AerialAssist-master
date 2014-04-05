@@ -62,7 +62,7 @@ public class CatapultSystem extends Subsystem {
      * TODO: Document this.
      */
     public int getAngle() {
-        SmartDashboard.putNumber("Catapult enc val", Math.abs(CatapultAngle.get()));
+        SmartDashboard.putNumber("Catapult Encoder Value", Math.abs(CatapultAngle.get()));
         return Math.abs(CatapultAngle.get());//For all CID': -CatapultAngle.get();
     }
 

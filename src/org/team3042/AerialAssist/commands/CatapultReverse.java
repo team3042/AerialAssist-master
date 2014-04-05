@@ -12,8 +12,9 @@ import org.team3042.AerialAssist.subsystems.CatapultSystem;
 public class CatapultReverse extends CommandBase {
 
     private static final int STOPPING_ANGLE = 20;
-    private static final double SPEED = 0.15;
+    public static double SPEED = 0.15;
     private Timer timer = new Timer();
+    
 
     /**
      * TODO: Document this.

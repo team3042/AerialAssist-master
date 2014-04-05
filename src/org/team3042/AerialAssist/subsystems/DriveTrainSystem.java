@@ -27,6 +27,14 @@ public class DriveTrainSystem extends Subsystem {
     /**
      * Drive Train Encoders
      */
+    public static double LEFT_HIGH_SCALER = 1.0;
+    public static double RIGHT_HIGH_SCALER = 1.0;
+    public static double LEFT_LOW_SCALER = 1.0;
+    public static double RIGHT_LOW_SCALER = 1.0;
+   
+    /**
+     * Drive Train Scalers
+     */
     //TODO jjkoletar 3/6/14 private->public
     public final Encoder driveLeftEncoder = new Encoder(
             RobotMap.DRIVE_ENCODER_INPUT_LEFT_A_DIO_PORT,
@@ -62,14 +70,14 @@ public class DriveTrainSystem extends Subsystem {
         double leftValue;
         double rightValue;
         if (CommandBase.shiftGears.isHigh()) {
-            leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", 1.0);
-            rightValue = rightSpeed * SmartDashboard.getNumber("Right Higjh Scale", 1.0);
+            leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", LEFT_HIGH_SCALER);
+            rightValue = rightSpeed * SmartDashboard.getNumber("Right High Scale", RIGHT_HIGH_SCALER);
 
 
 
         } else {
-            leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", 1.0);
-            rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", 1.0);
+            leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", LEFT_LOW_SCALER);
+            rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", RIGHT_LOW_SCALER);
 
         }
         robotDrive.tankDrive(leftValue, rightValue);

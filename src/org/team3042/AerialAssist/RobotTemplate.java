@@ -12,13 +12,10 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import javax.microedition.io.Connector;
 import org.team3042.AerialAssist.commands.AutoDrive108In;
 import org.team3042.AerialAssist.commands.AutoDriveShoot;
 import org.team3042.AerialAssist.commands.CatapultForward;
+import org.team3042.AerialAssist.commands.CatapultReverse;
 import org.team3042.AerialAssist.commands.CommandBase;
 import org.team3042.AerialAssist.subsystems.RangeFinderSystem;
 
@@ -34,20 +31,20 @@ import org.team3042.AerialAssist.subsystems.RangeFinderSystem;
 public class RobotTemplate extends IterativeRobot {
 
     Command autonomousCommand;
-    public static boolean varyCatapult = false;
+    public static final boolean varyCatapult = false;
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     public void robotInit() {
-        SmartDashboard.putNumber("The Reverse Speed", 0.15);
+        SmartDashboard.putNumber("The Reverse Speed", CatapultReverse.SPEED);
         SmartDashboard.putNumber("The Forward Speed", CatapultForward.SPEED);
         SmartDashboard.putNumber("The Angle", CatapultForward.DEFAULT_ANGLE);
         SmartDashboard.putNumber("P", 0.2);
         SmartDashboard.putNumber("I", 0);
         SmartDashboard.putNumber("D", 0);
-        SmartDashboard.putNumber("auto left", 1.0);
-        SmartDashboard.putNumber("auto right", 1.0);
+        SmartDashboard.putNumber("Auto Left", AutoDrive108In.LEFT_AUTO_SCALER);
+        SmartDashboard.putNumber("Auto Right", AutoDrive108In.RIGHT_AUTO_SCALER);
         SmartDashboard.putNumber("Auto Distance", AutoDrive108In.DRIVE_DISTANCE);
         // Create subsystems so that auton command have hardware to talk to 
         CommandBase.init();

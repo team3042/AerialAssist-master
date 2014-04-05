@@ -20,6 +20,8 @@ public class AutoDrive108In extends CommandBase {
     private double lOffset = 1;
     private double rOffset = 1;
     private Timer timer = new Timer();
+    public static double LEFT_AUTO_SCALER;
+    public static double RIGHT_AUTO_SCALER;
     
 
     public AutoDrive108In() {
@@ -34,8 +36,8 @@ public class AutoDrive108In extends CommandBase {
         driveTrain.encoderStart();
         timer.reset();
         timer.start();
-        lOffset = SmartDashboard.getNumber("auto left", 1.0);
-        rOffset = SmartDashboard.getNumber("auto right", 1.0);
+        lOffset = SmartDashboard.getNumber("Auto Left", LEFT_AUTO_SCALER);
+        rOffset = SmartDashboard.getNumber("Auto Right", RIGHT_AUTO_SCALER);
         DRIVE_DISTANCE = SmartDashboard.getNumber("Auto Distance", DRIVE_DISTANCE);
         
     }
@@ -44,8 +46,8 @@ public class AutoDrive108In extends CommandBase {
     protected void execute() {
         //if (stoppingAt == 0) {
             driveTrain.tankDrive(-DRIVE_SPEED * lOffset, -DRIVE_SPEED * rOffset);
-            SmartDashboard.putNumber("Left encoder", driveTrain.driveLeftEncoder.getDistance());
-            SmartDashboard.putNumber("Right encoder", driveTrain.driveRightEncoder.getDistance());
+            SmartDashboard.putNumber("Left Encoder", driveTrain.driveLeftEncoder.getDistance());
+            SmartDashboard.putNumber("Right Encoder", driveTrain.driveRightEncoder.getDistance());
        // }        else { driveTrain.tankDrive(0, 0);}
 
     }
@@ -53,7 +55,7 @@ public class AutoDrive108In extends CommandBase {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         boolean driveFinished = false;
-        SmartDashboard.putNumber("Encoder auton", driveTrain.encoderAverage());
+        SmartDashboard.putNumber("Encoder Auto", driveTrain.encoderAverage());
         if (driveTrain.encoderAverage() >= DRIVE_DISTANCE){ // && stoppingAt == 0) {
             driveFinished = true;
             //driveTrain.tankDrive(DRIVE_STOP, DRIVE_STOP);
