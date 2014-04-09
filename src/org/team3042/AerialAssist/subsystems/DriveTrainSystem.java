@@ -25,15 +25,14 @@ public class DriveTrainSystem extends Subsystem {
      */
     public static final double ENCODER_INCHES_PER_TICK = 0.0785;
     /**
-     * Drive Train Encoders
-     */
-    public static double LEFT_HIGH_SCALER = 1.0;
-    public static double RIGHT_HIGH_SCALER = 1.0;
-    public static double LEFT_LOW_SCALER = 1.0;
-    public static double RIGHT_LOW_SCALER = 1.0;
-   
-    /**
      * Drive Train Scalers
+     */
+    public static final double DRIVE_LEFT_LOW_SCALER = 1.0;
+    public static final double DRIVE_RIGHT_LOW_SCALER = 1.0;
+    public static final double DRIVE_LEFT_HIGH_SCALER = 1.0;
+    public static final double DRIVE_RIGHT_HIGH_SCALER = 1.0;
+    /**
+     * Drive Train Encoders
      */
     //TODO jjkoletar 3/6/14 private->public
     public final Encoder driveLeftEncoder = new Encoder(
@@ -70,14 +69,14 @@ public class DriveTrainSystem extends Subsystem {
         double leftValue;
         double rightValue;
         if (CommandBase.shiftGears.isHigh()) {
-            leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", LEFT_HIGH_SCALER);
-            rightValue = rightSpeed * SmartDashboard.getNumber("Right High Scale", RIGHT_HIGH_SCALER);
+            leftValue = leftSpeed * SmartDashboard.getNumber("Left High Scale", DRIVE_LEFT_HIGH_SCALER);
+            rightValue = rightSpeed * SmartDashboard.getNumber("Right Higjh Scale", DRIVE_RIGHT_HIGH_SCALER);
 
 
 
         } else {
-            leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", LEFT_LOW_SCALER);
-            rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", RIGHT_LOW_SCALER);
+            leftValue = leftSpeed * SmartDashboard.getNumber("Left Low Scale", DRIVE_LEFT_LOW_SCALER);
+            rightValue = rightSpeed * SmartDashboard.getNumber("Right Low Scale", DRIVE_LEFT_LOW_SCALER);
 
         }
         robotDrive.tankDrive(leftValue, rightValue);

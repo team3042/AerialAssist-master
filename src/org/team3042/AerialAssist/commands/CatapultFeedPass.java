@@ -45,7 +45,7 @@ public class CatapultFeedPass extends CommandBase {
     protected boolean isFinished() {
         double timeSeconds = timer.get();
         int currentAngle = catapult.getAngle();
-        SmartDashboard.putNumber("Catapult Encoder Value", catapult.getAngle());
+        SmartDashboard.putNumber("Catapult encoder value", catapult.getAngle());
         boolean angleReached = false;
         if (currentAngle >= stoppingAngle || timeSeconds > 1) {
             angleReached = true;

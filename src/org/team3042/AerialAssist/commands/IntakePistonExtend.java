@@ -45,11 +45,13 @@ public class IntakePistonExtend extends CommandBase {
           //  finished = true;
         //}
         System.out.println("Intake Switch Position" + intakePiston.switchStatus());
-        
-        if ((intakePiston.switchStatus() == false) || 
-                oi.gunner.getRawButton(RobotMap.INTAKE_PISTON_OVERRIDE)){
+        /**
+         * Commented out for CID 2, didn't have a lever switch
+         */
+        //if ((intakePiston.switchStatus() == false) || 
+                //oi.gunner.getRawButton(RobotMap.INTAKE_PISTON_OVERRIDE)){
             finished = true;
-        }
+        //}
         return finished;
     }
 

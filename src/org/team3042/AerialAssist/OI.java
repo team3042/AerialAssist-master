@@ -40,10 +40,10 @@ public class OI {
      * This binds the controls to the correct commands
      */
     public OI() {
-        SmartDashboard.putNumber("Left Low Scale", DriveTrainSystem.LEFT_LOW_SCALER);
-        SmartDashboard.putNumber("Right Low Scale", DriveTrainSystem.RIGHT_LOW_SCALER);
-        SmartDashboard.putNumber("Left High Scale", DriveTrainSystem.LEFT_HIGH_SCALER);
-        SmartDashboard.putNumber("Right High Scale", DriveTrainSystem.RIGHT_HIGH_SCALER);
+        SmartDashboard.putNumber("Left Low Scale", DriveTrainSystem.DRIVE_LEFT_LOW_SCALER);
+        SmartDashboard.putNumber("Right Low Scale", DriveTrainSystem.DRIVE_RIGHT_LOW_SCALER);
+        SmartDashboard.putNumber("Left High Scale", DriveTrainSystem.DRIVE_LEFT_HIGH_SCALER);
+        SmartDashboard.putNumber("Right High Scale", DriveTrainSystem.DRIVE_RIGHT_HIGH_SCALER);
 
 
         /**
